@@ -544,5 +544,7 @@
   }
 
   window.Interactive = { heroChart: heroChart, challenge: challenge, fees: fees, portfolio: portfolio, position: position,
-    classify: classify, portfolioStats: portfolioStats, rebalance: rebalance };
+    classify: classify, portfolioStats: portfolioStats, rebalance: rebalance,
+    // Piezas comunes que reutilizan las herramientas Premium (premium/tools.js)
+    helpers: { S: S, clamp: clamp, niceStep: niceStep, slider: slider, kpi: kpi, toolHead: toolHead, lineChart: lineChart, onResize: onResize, fmtPct: fmtPct, fmtNum: fmtNum } };
 })();

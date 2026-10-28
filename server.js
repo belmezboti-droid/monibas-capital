@@ -43,6 +43,19 @@ if (process.env.ADMIN_EMAILS) console.warn('[seguridad] ADMIN_EMAILS ya no se us
 const AI_DAILY_LIMIT = Math.max(0, parseInt(process.env.AI_DAILY_LIMIT, 10) || 500);
 const ANTHROPIC_API_KEY = process.env.ANTHROPIC_API_KEY || '';
 const ANTHROPIC_MODEL = process.env.ANTHROPIC_MODEL || 'claude-sonnet-5';
+// Suscripción Premium con Stripe (si faltan las claves, la compra se desactiva y la web lo indica)
+const STRIPE_SECRET_KEY = process.env.STRIPE_SECRET_KEY || '';
+const STRIPE_PRICE_ID = process.env.STRIPE_PRICE_ID || '';
+const STRIPE_WEBHOOK_SECRET = process.env.STRIPE_WEBHOOK_SECRET || '';
+const STRIPE_AUTOMATIC_TAX = process.env.STRIPE_AUTOMATIC_TAX === 'true';
+const PUBLIC_URL = String(process.env.PUBLIC_URL || '').replace(/\/+$/, '');
+const BILLING_ENABLED = !!(STRIPE_SECRET_KEY && STRIPE_PRICE_ID && STRIPE_WEBHOOK_SECRET);
+if (IS_PROD && BILLING_ENABLED && !/^https:\/\//.test(PUBLIC_URL)) {
+  console.error('[pagos] En producción, PUBLIC_URL debe ser la dirección https de la web (por ejemplo, https://monibascapital.com).');
+  process.exit(1);
+}
+const AI_LIMIT_FREE = 30, AI_LIMIT_PREMIUM = 120; // consultas por hora y usuario
+const PRO_COUNT = 4; // módulos Pro
 const NEWS_FEEDS = splitList(process.env.NEWS_FEEDS ||
   'https://feeds.bbci.co.uk/news/business/rss.xml,https://www.cnbc.com/id/100003114/device/rss/rss.html');
 
@@ -103,6 +116,14 @@ addColumn('users', 'lang', "TEXT NOT NULL DEFAULT 'es'");
 addColumn('users', 'progress', "TEXT NOT NULL DEFAULT '{}'");
 addColumn('users', 'token_version', 'INTEGER NOT NULL DEFAULT 0');
 addColumn('users', 'is_admin', 'INTEGER NOT NULL DEFAULT 0');
+// Suscripción: solo se guardan identificadores de Stripe y el estado, nunca datos de la tarjeta
+addColumn('users', 'premium_until', 'INTEGER NOT NULL DEFAULT 0');
+addColumn('users', 'sub_status', "TEXT NOT NULL DEFAULT ''");
+addColumn('users', 'sub_cancel_at_end', 'INTEGER NOT NULL DEFAULT 0');
+addColumn('users', 'sub_event_at', 'INTEGER NOT NULL DEFAULT 0');
+addColumn('users', 'stripe_customer', 'TEXT');
+addColumn('users', 'stripe_sub', 'TEXT');
+db.exec('CREATE TABLE IF NOT EXISTS stripe_events (id TEXT PRIMARY KEY, created_at INTEGER NOT NULL)');
 
 const q = {
   userById: db.prepare('SELECT * FROM users WHERE id = ?'),
@@ -131,7 +152,12 @@ const q = {
   deleteRepliesByUser: db.prepare('DELETE FROM replies WHERE user_id = ?'),
   deleteRepliesOnUserPosts: db.prepare('DELETE FROM replies WHERE post_id IN (SELECT id FROM posts WHERE user_id = ?)'),
   deletePostsByUser: db.prepare('DELETE FROM posts WHERE user_id = ?'),
-  deleteUser: db.prepare('DELETE FROM users WHERE id = ?')
+  deleteUser: db.prepare('DELETE FROM users WHERE id = ?'),
+  userByCustomer: db.prepare('SELECT * FROM users WHERE stripe_customer = ?'),
+  linkCustomer: db.prepare('UPDATE users SET stripe_customer = ?, stripe_sub = COALESCE(?, stripe_sub) WHERE id = ?'),
+  setSubscription: db.prepare('UPDATE users SET stripe_sub = ?, sub_status = ?, premium_until = ?, sub_cancel_at_end = ?, sub_event_at = ? WHERE id = ?'),
+  eventSeen: db.prepare('SELECT id FROM stripe_events WHERE id = ?'),
+  eventStore: db.prepare('INSERT OR IGNORE INTO stripe_events (id, created_at) VALUES (?, ?)')
 };
 const deletePostTx = db.transaction(id => { q.deleteRepliesOfPost.run(id); q.deletePost.run(id); });
 const deleteAccountTx = db.transaction(id => {
@@ -173,7 +199,7 @@ function parseProgress(raw) {
     const p = JSON.parse(raw || '{}');
     return sanitizeProgress(p);
   } catch (e) {
-    return { passed: [], scores: {} };
+    return { passed: [], scores: {}, pro: { passed: [], scores: {} } };
   }
 }
 function sanitizeProgress(p) {
@@ -189,15 +215,40 @@ function sanitizeProgress(p) {
       }
     }
   }
-  return { passed, scores };
+  const pro = { passed: [], scores: {} };
+  if (p && p.pro && typeof p.pro === 'object') {
+    if (Array.isArray(p.pro.passed)) pro.passed = [...new Set(p.pro.passed.filter(n => Number.isInteger(n) && n >= 0 && n < PRO_COUNT))].sort((a, b) => a - b);
+    if (p.pro.scores && typeof p.pro.scores === 'object') {
+      for (const [k, v] of Object.entries(p.pro.scores)) {
+        const m = Number(k);
+        if (Number.isInteger(m) && m >= 0 && m < PRO_COUNT && Number.isFinite(v) && v >= 0 && v <= 100) pro.scores[m] = Math.round(v);
+      }
+    }
+  }
+  return { passed, scores, pro };
 }
 
 /* ------------------------------------------------------------------ */
 /* Sesión                                                              */
 /* ------------------------------------------------------------------ */
 function isAdmin(user) { return !!user && user.is_admin === 1; }
+function isPremium(user) { return !!user && Number(user.premium_until) > Date.now(); }
 function publicUser(user) {
-  return { id: user.id, username: user.username, lang: user.lang, isAdmin: isAdmin(user) };
+  return {
+    id: user.id, username: user.username, lang: user.lang, isAdmin: isAdmin(user),
+    premium: {
+      active: isPremium(user),
+      until: isPremium(user) ? Number(user.premium_until) : null,
+      cancelAtEnd: user.sub_cancel_at_end === 1,
+      manageable: !!user.stripe_customer
+    }
+  };
+}
+function requirePremium(req, res, next) {
+  req.user = readUser(req);
+  if (!req.user) return res.status(401).json({ error: 'UNAUTHENTICATED' });
+  if (!isPremium(req.user)) return res.status(403).json({ error: 'PREMIUM_REQUIRED' });
+  next();
 }
 function issueSession(res, user) {
   const token = jwt.sign({ uid: user.id, tv: user.token_version }, JWT_SECRET, { algorithm: 'HS256', expiresIn: '7d' });
@@ -261,6 +312,18 @@ app.use((req, res, next) => {
 });
 app.use(compression());
 if (ALLOWED_ORIGINS.length) app.use('/api', cors({ origin: ALLOWED_ORIGINS, credentials: true }));
+app.post('/api/billing/webhook', express.raw({ type: 'application/json', limit: '512kb' }), (req, res) => {
+  if (!BILLING_ENABLED) return res.status(503).json({ error: 'BILLING_DISABLED' });
+  const raw = Buffer.isBuffer(req.body) ? req.body : Buffer.from('');
+  if (!verifyStripeSignature(raw, req.get('Stripe-Signature'))) return res.status(400).json({ error: 'BAD_SIGNATURE' });
+  let event;
+  try { event = JSON.parse(raw.toString('utf8')); } catch (e) { return res.status(400).json({ error: 'INVALID_INPUT' }); }
+  if (!event || typeof event.id !== 'string' || !event.data || !event.data.object) return res.status(400).json({ error: 'INVALID_INPUT' });
+  if (q.eventSeen.get(event.id)) return res.json({ received: true, duplicate: true }); // Stripe puede reenviar el mismo evento
+  handleStripeEvent(event)
+    .then(() => { q.eventStore.run(event.id, Date.now()); res.json({ received: true }); })
+    .catch(err => { console.error('[pagos] error procesando', event.type, err.message); res.status(500).json({ error: 'SERVER_ERROR' }); }); // Stripe reintentará
+});
 app.use(express.json({ limit: '32kb', strict: true }));
 app.use(cookieParser());
 
@@ -283,7 +346,7 @@ const apiLimiter = rateLimit({ windowMs: 15 * 60 * 1000, max: 1500, standardHead
 const authLimiter = rateLimit({ windowMs: 15 * 60 * 1000, max: 20, standardHeaders: true, legacyHeaders: false, handler: limitHandler });
 const writeLimiter = rateLimit({ windowMs: 60 * 1000, max: 12, standardHeaders: true, legacyHeaders: false, handler: limitHandler });
 const aiLimiter = rateLimit({
-  windowMs: 60 * 60 * 1000, max: 30, standardHeaders: true, legacyHeaders: false, handler: limitHandler,
+  windowMs: 60 * 60 * 1000, max: req => (isPremium(req.user) ? AI_LIMIT_PREMIUM : AI_LIMIT_FREE), standardHeaders: true, legacyHeaders: false, handler: limitHandler,
   keyGenerator: req => 'u' + (req.user ? req.user.id : '0')
 });
 app.use('/api', apiLimiter);
@@ -372,10 +435,151 @@ app.delete('/api/me', requireAuth, authLimiter, async (req, res, next) => {
     const password = typeof req.body.password === 'string' ? req.body.password.slice(0, 200) : '';
     const ok = await bcrypt.compare(password, req.user.password_hash);
     if (!ok) return res.status(401).json({ error: 'INVALID_CREDENTIALS' });
+    // Si tiene una suscripción viva, se cancela antes de borrar: nunca se puede cobrar a una cuenta que ya no existe
+    if (req.user.stripe_sub && !['canceled', 'incomplete_expired'].includes(req.user.sub_status)) {
+      if (!STRIPE_SECRET_KEY) return res.status(502).json({ error: 'BILLING_ERROR' });
+      try { await stripeApi('DELETE', '/v1/subscriptions/' + encodeURIComponent(req.user.stripe_sub)); }
+      catch (e) { if (e.status !== 404) return res.status(502).json({ error: 'BILLING_ERROR' }); }
+    }
     deleteAccountTx(req.user.id);
     clearSession(res);
     res.json({ ok: true });
   } catch (err) { next(err); }
+});
+
+/* ---------------- Premium: pagos con Stripe ---------------- */
+const billingLimiter = rateLimit({ windowMs: 15 * 60 * 1000, max: 20, standardHeaders: true, legacyHeaders: false, handler: limitHandler });
+const STRIPE_LOCALES = { es: 'es', en: 'en', fr: 'fr', de: 'de' };
+
+function flattenParams(obj, prefix, out) {
+  out = out || new URLSearchParams();
+  for (const [k, v] of Object.entries(obj)) {
+    if (v === undefined || v === null) continue;
+    const key = prefix ? prefix + '[' + k + ']' : k;
+    if (typeof v === 'object') flattenParams(v, key, out); else out.append(key, String(v));
+  }
+  return out;
+}
+async function stripeApi(method, endpoint, params) {
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), 15000);
+  try {
+    const r = await fetch('https://api.stripe.com' + endpoint, {
+      method,
+      headers: { Authorization: 'Bearer ' + STRIPE_SECRET_KEY, 'Content-Type': 'application/x-www-form-urlencoded', 'Stripe-Version': '2024-06-20' },
+      body: params ? flattenParams(params).toString() : undefined,
+      signal: controller.signal
+    });
+    const data = await r.json().catch(() => ({}));
+    if (!r.ok) { const e = new Error('stripe ' + r.status + ' ' + ((data.error && data.error.type) || '')); e.status = r.status; throw e; }
+    return data;
+  } finally { clearTimeout(timer); }
+}
+function verifyStripeSignature(raw, header) {
+  if (!header || !STRIPE_WEBHOOK_SECRET) return false;
+  const parts = String(header).split(',').map(x => x.trim().split('='));
+  const ts = Number((parts.find(p => p[0] === 't') || [])[1]);
+  const sigs = parts.filter(p => p[0] === 'v1').map(p => p[1] || '');
+  if (!Number.isFinite(ts) || !sigs.length) return false;
+  if (Math.abs(Date.now() / 1000 - ts) > 300) return false; // evita reenvíos de mensajes antiguos capturados
+  const expected = crypto.createHmac('sha256', STRIPE_WEBHOOK_SECRET).update(ts + '.' + raw.toString('utf8')).digest('hex');
+  const exp = Buffer.from(expected, 'hex');
+  return sigs.some(sig => { const b = Buffer.from(/^[0-9a-f]+$/i.test(sig) ? sig : '', 'hex'); return b.length === exp.length && crypto.timingSafeEqual(b, exp); });
+}
+const LIVE_STATUSES = ['active', 'trialing', 'past_due'];
+function applySubscription(user, sub, eventCreated, deleted) {
+  if (eventCreated && user.sub_event_at && eventCreated < user.sub_event_at) return; // evento antiguo que llega tarde
+  // Un aviso sobre una suscripción ANTERIOR (p. ej. la baja tardía de una vieja) no puede tocar la suscripción vigente
+  if (sub.id && user.stripe_sub && sub.id !== user.stripe_sub && isPremium(user)) return;
+  const end = Number(sub.current_period_end || (sub.items && sub.items.data && sub.items.data[0] && sub.items.data[0].current_period_end) || 0);
+  const live = !deleted && LIVE_STATUSES.includes(sub.status) && end > 0;
+  // 2 días de margen tras el fin del periodo para que la renovación no corte el acceso mientras llega el aviso de Stripe
+  const until = live ? end * 1000 + 2 * 24 * 3600 * 1000 : 0;
+  q.setSubscription.run(sub.id || user.stripe_sub, deleted ? 'canceled' : String(sub.status || ''), until, sub.cancel_at_period_end ? 1 : 0, eventCreated || Math.floor(Date.now() / 1000), user.id);
+}
+async function handleStripeEvent(event) {
+  const obj = event.data.object;
+  if (event.type === 'checkout.session.completed') {
+    const userId = Number(obj.client_reference_id);
+    const user = Number.isInteger(userId) ? q.userById.get(userId) : null;
+    if (!user || typeof obj.customer !== 'string') return;
+    q.linkCustomer.run(obj.customer, typeof obj.subscription === 'string' ? obj.subscription : null, user.id);
+    if (typeof obj.subscription === 'string') {
+      const sub = await stripeApi('GET', '/v1/subscriptions/' + encodeURIComponent(obj.subscription));
+      applySubscription(q.userById.get(user.id), sub, event.created, false);
+    }
+  } else if (/^customer\.subscription\.(created|updated|deleted)$/.test(event.type)) {
+    const user = typeof obj.customer === 'string' ? q.userByCustomer.get(obj.customer) : null;
+    if (!user) return; // aún no vinculado: lo hará checkout.session.completed
+    applySubscription(user, obj, event.created, event.type === 'customer.subscription.deleted');
+  }
+}
+function siteUrl(req) { return PUBLIC_URL || (req.protocol + '://' + req.get('host')); }
+
+app.get('/api/billing/config', (req, res) => res.json({ enabled: BILLING_ENABLED }));
+
+app.post('/api/billing/checkout', requireAuth, billingLimiter, async (req, res) => {
+  if (!BILLING_ENABLED) return res.status(503).json({ error: 'BILLING_DISABLED' });
+  if (isPremium(req.user)) return res.status(409).json({ error: 'ALREADY_PREMIUM' });
+  try {
+    const base = siteUrl(req);
+    const session = await stripeApi('POST', '/v1/checkout/sessions', {
+      mode: 'subscription',
+      line_items: { 0: { price: STRIPE_PRICE_ID, quantity: 1 } },
+      client_reference_id: String(req.user.id),
+      customer: req.user.stripe_customer || undefined,
+      customer_email: req.user.stripe_customer ? undefined : req.user.email,
+      success_url: base + '/#/premium/success',
+      cancel_url: base + '/#/premium',
+      allow_promotion_codes: 'true',
+      locale: STRIPE_LOCALES[req.user.lang] || 'auto',
+      automatic_tax: STRIPE_AUTOMATIC_TAX ? { enabled: 'true' } : undefined,
+      subscription_data: { metadata: { user_id: String(req.user.id) } }
+    });
+    if (typeof session.url !== 'string' || !session.url.startsWith('https://checkout.stripe.com/')) throw new Error('url inesperada');
+    res.json({ url: session.url });
+  } catch (e) {
+    console.error('[pagos] checkout:', e.message);
+    res.status(502).json({ error: 'BILLING_ERROR' });
+  }
+});
+
+app.post('/api/billing/portal', requireAuth, billingLimiter, async (req, res) => {
+  if (!BILLING_ENABLED) return res.status(503).json({ error: 'BILLING_DISABLED' });
+  if (!req.user.stripe_customer) return res.status(404).json({ error: 'NOT_FOUND' });
+  try {
+    const session = await stripeApi('POST', '/v1/billing_portal/sessions', { customer: req.user.stripe_customer, return_url: siteUrl(req) + '/#/premium' });
+    if (typeof session.url !== 'string' || !session.url.startsWith('https://billing.stripe.com/')) throw new Error('url inesperada');
+    res.json({ url: session.url });
+  } catch (e) {
+    console.error('[pagos] portal:', e.message);
+    res.status(502).json({ error: 'BILLING_ERROR' });
+  }
+});
+
+/* ---------------- Premium: contenido y herramientas (solo para suscriptores) ---------------- */
+// Se guardan FUERA de /public: el servidor solo los entrega a quien tiene Premium activo.
+const PREMIUM_DIR = path.join(__dirname, 'premium');
+const premiumContent = {};
+for (const l of LANGS) {
+  try { premiumContent[l] = fs.readFileSync(path.join(PREMIUM_DIR, l + '.json'), 'utf8'); }
+  catch (e) { console.warn('[premium] falta premium/' + l + '.json'); }
+}
+let premiumTools = '';
+try { premiumTools = fs.readFileSync(path.join(PREMIUM_DIR, 'tools.js'), 'utf8'); } catch (e) { console.warn('[premium] falta premium/tools.js'); }
+
+app.get('/api/premium/content', requirePremium, (req, res) => {
+  const lang = LANGS.has(req.query.lang) ? req.query.lang : req.user.lang;
+  const body = premiumContent[lang] || premiumContent.es;
+  if (!body) return res.status(404).json({ error: 'NOT_FOUND' });
+  res.set('Content-Type', 'application/json; charset=utf-8');
+  res.set('Cache-Control', 'private, no-store');
+  res.end(body);
+});
+app.get('/api/premium/tools.js', requirePremium, (req, res) => {
+  res.set('Content-Type', 'text/javascript; charset=utf-8');
+  res.set('Cache-Control', 'private, no-store');
+  res.end(premiumTools);
 });
 
 /* ---------------- Foro ---------------- */

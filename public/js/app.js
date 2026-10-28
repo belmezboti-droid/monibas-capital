@@ -15,6 +15,9 @@
   var LEVEL_ICONS = ['shield', 'book', 'chart', 'basket', 'arrows', 'search', 'compass', 'globe'];
   var STAGE_OF = [0, 0, 0, 1, 1, 1, 2, 2];
   var LAB_TABS = ['compound', 'challenge', 'fees', 'portfolio', 'position'];
+  var PRO_COUNT = 4, PRO_ICONS = ['percent', 'layers', 'calc', 'shield'];
+  var PRO_TOOLS = ['montecarlo', 'drawdown', 'fire', 'dcf'], PRO_TOOL_ICONS = { montecarlo: 'dice', drawdown: 'down', fire: 'target', dcf: 'factory' };
+  var AI_LIMIT_FREE = 30, AI_LIMIT_PREMIUM = 120;
   var LAB_ICONS = { compound: 'calc', challenge: 'dice', fees: 'coins', portfolio: 'layers', position: 'ruler' };
   // Simulador recomendado al terminar cada nivel (null = ninguno)
   var LEVEL_TOOL = ['compound', 'fees', 'challenge', 'portfolio', 'position', null, 'portfolio', 'challenge'];
@@ -71,7 +74,9 @@
     dice: 'M6 4h12a2 2 0 012 2v12a2 2 0 01-2 2H6a2 2 0 01-2-2V6a2 2 0 012-2zM9 9h.01M15 15h.01M12 12h.01M15 9h.01M9 15h.01',
     coins: 'M9 8c3.3 0 6-1.1 6-2.5S12.3 3 9 3 3 4.1 3 5.5 5.7 8 9 8zM3 5.5v4C3 10.9 5.7 12 9 12s6-1.1 6-2.5M3 9.5v4C3 14.9 5.7 16 9 16c1 0 2-.1 2.8-.3M15 13a6 6 0 100 8 4 4 0 000-8zM15 15v4',
     layers: 'M12 3l9 5-9 5-9-5zM3 13l9 5 9-5M3 17l9 5 9-5',
-    ruler: 'M3 17L17 3l4 4L7 21zM7 13l2 2M10 10l2 2M13 7l2 2'
+    ruler: 'M3 17L17 3l4 4L7 21zM7 13l2 2M10 10l2 2M13 7l2 2',
+    star: 'M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z',
+    card: 'M3 6h18v12H3zM3 10h18M7 15h3'
   };
 
   /* ------------------------------------------------------------ */
@@ -186,7 +191,15 @@
         if (Number.isInteger(lvl) && lvl >= 0 && lvl < LEVELS && isFinite(v) && v >= 0 && v <= 100) scores[lvl] = Math.round(v);
       });
     }
-    return { passed: passed, scores: scores };
+    var pro = { passed: [], scores: {} };
+    if (p.pro && typeof p.pro === 'object') {
+      if (Array.isArray(p.pro.passed)) pro.passed = p.pro.passed.filter(function (n, i, a) { return Number.isInteger(n) && n >= 0 && n < PRO_COUNT && a.indexOf(n) === i; }).sort(function (a, b) { return a - b; });
+      if (p.pro.scores && typeof p.pro.scores === 'object') Object.keys(p.pro.scores).forEach(function (k) {
+        var m = Number(k), v = Number(p.pro.scores[k]);
+        if (Number.isInteger(m) && m >= 0 && m < PRO_COUNT && isFinite(v) && v >= 0 && v <= 100) pro.scores[m] = Math.round(v);
+      });
+    }
+    return { passed: passed, scores: scores, pro: pro };
   }
   function loadProgress() {
     var p = store.get('ci.progress', null);
@@ -222,7 +235,10 @@
     var local = state.progress, passed = local.passed.slice(), scores = Object.assign({}, local.scores);
     remote.passed.forEach(function (n) { if (passed.indexOf(n) < 0) passed.push(n); });
     Object.keys(remote.scores).forEach(function (k) { scores[k] = Math.max(scores[k] || 0, remote.scores[k]); });
-    state.progress = sanitizeProgress({ passed: passed, scores: scores });
+    var pro = { passed: local.pro.passed.slice(), scores: Object.assign({}, local.pro.scores) };
+    remote.pro.passed.forEach(function (n) { if (pro.passed.indexOf(n) < 0) pro.passed.push(n); });
+    Object.keys(remote.pro.scores).forEach(function (k) { pro.scores[k] = Math.max(pro.scores[k] || 0, remote.pro.scores[k]); });
+    state.progress = sanitizeProgress({ passed: passed, scores: scores, pro: pro });
     saveProgress();
   }
 
@@ -329,6 +345,12 @@
     if (parts[0] === 'level' && /^\d+$/.test(parts[1]) && Number(parts[1]) < LEVELS) return { name: 'level', id: Number(parts[1]) };
     if (parts[0] === 'simulator') return { name: 'simulator', tab: LAB_TABS.indexOf(parts[1]) >= 0 ? parts[1] : 'compound' };
     if (['forum', 'ai', 'resources'].indexOf(parts[0]) >= 0) return { name: parts[0] };
+    if (parts[0] === 'premium') {
+      if (parts[1] === 'module' && /^\d$/.test(parts[2]) && Number(parts[2]) < PRO_COUNT) return { name: 'premium', sub: 'module', id: Number(parts[2]) };
+      if (parts[1] === 'tool' && PRO_TOOLS.indexOf(parts[2]) >= 0) return { name: 'premium', sub: 'tool', id: parts[2] };
+      if (parts[1] === 'exam' || parts[1] === 'success') return { name: 'premium', sub: parts[1] };
+      return { name: 'premium', sub: 'home' };
+    }
     return { name: 'home' };
   }
   function go(hash) { if (location.hash === hash) render(); else location.hash = hash; }
@@ -359,6 +381,11 @@
     sel.addEventListener('change', function () { setLang(sel.value, true); });
     return sel;
   }
+  function isPremiumUser() { return !!(state.user && state.user.premium && state.user.premium.active); }
+  function premiumChip(extraClass) {
+    var on = isPremiumUser();
+    return el('a', { class: 'premium-chip ' + (on ? 'is-on ' : '') + (extraClass || ''), href: '#/premium' }, icon('star'), t(on ? 'ui.premium.badge' : 'ui.premium.nav'));
+  }
   function accountControl(extraClass) {
     if (state.user) {
       var initial = (state.user.username || '?').charAt(0).toUpperCase();
@@ -380,6 +407,7 @@
       el('a', { class: 'brand', href: '#/' }, brandMark(), el('span', null, t('ui.brand'), el('small', { text: t('ui.brandTag') }))),
       nav,
       el('div', { class: 'top-actions' },
+        premiumChip('hide-sm'),
         langSelect('langTop'),
         el('button', { class: 'btn-icon hide-sm', type: 'button', 'aria-label': t('ui.account.settings'), onclick: openSettings }, icon('settings')),
         accountControl('hide-sm'),
@@ -390,6 +418,7 @@
     navItems().forEach(function (n) {
       mob.appendChild(el('a', { href: n.hash, 'aria-current': n.match.indexOf(route.name) >= 0 ? 'page' : null }, icon(n.icon), t('ui.nav.' + n.key)));
     });
+    mob.appendChild(el('a', { href: '#/premium', class: 'mob-premium', 'aria-current': route.name === 'premium' ? 'page' : null }, icon('star'), t('ui.premium.nav')));
     mob.appendChild(el('div', { class: 'mobile-extra' },
       accountControl(),
       el('button', { class: 'btn btn-ghost btn-sm', type: 'button', onclick: openSettings }, icon('settings'), t('ui.account.settings'))));
@@ -413,6 +442,7 @@
     var links = el('ul', { class: 'foot-links' }, navItems().map(function (n) {
       return el('li', null, el('a', { href: n.hash }, t('ui.nav.' + n.key)));
     }));
+    links.appendChild(el('li', null, el('a', { href: '#/premium' }, t('ui.premium.nav'))));
     f.replaceChildren(el('div', { class: 'wrap' },
       el('div', { class: 'foot-top' },
         el('div', { class: 'foot-brand' },
@@ -444,6 +474,7 @@
     else if (route.name === 'forum') { renderForum(view); title = t('ui.nav.forum'); }
     else if (route.name === 'ai') { renderAI(view); title = t('ui.nav.ai'); }
     else if (route.name === 'resources') { renderResources(view); title = t('ui.nav.resources'); }
+    else if (route.name === 'premium') { renderPremium(view, route); title = t('ui.premium.title'); }
     else { renderHome(view); title = null; }
     document.title = title ? title + ' | ' + t('ui.brand') : t('ui.brand') + ' | ' + t('ui.brandTag');
     void view.offsetWidth;
@@ -507,6 +538,7 @@
     });
     view.appendChild(el('section', { id: 'route' }, route));
 
+    append(view, el('div', { class: 'wrap' }, adSlot(0)));
     var tools = ['simulator', 'forum', 'ai', 'resources'], toolIcons = { simulator: 'calc', forum: 'message', ai: 'bot', resources: 'news' };
     view.appendChild(el('section', null, el('div', { class: 'wrap' },
       sectionHead(t('ui.tools.title'), t('ui.tools.sub')),
@@ -578,7 +610,11 @@
       el('h2', null, icon('spark'), t('ui.level.essentials')),
       el('ol', null, lv.essentials.map(function (e) { return el('li', { text: e }); }))));
     var toc = [];
-    lv.blocks.forEach(function (b, bi) { append(body, renderBlock(b, 'b' + i + '-' + bi, toc)); });
+    var adAt = Math.max(2, Math.floor(lv.blocks.length / 2));
+    lv.blocks.forEach(function (b, bi) {
+      append(body, renderBlock(b, 'b' + i + '-' + bi, toc));
+      if (bi === adAt) append(body, adSlot(i));
+    });
     append(body, practiceCard(i));
     body.appendChild(renderQuiz(i));
     body.appendChild(levelPager(i));
@@ -691,22 +727,24 @@
   /* ------------------------------------------------------------ */
   /* Test                                                          */
   /* ------------------------------------------------------------ */
-  function renderQuiz(i) {
-    var qs = LOC().levels[i].quiz, total = qs.length, min = Math.ceil(total * PASS_RATIO);
+  function renderQuiz(i, pro) {
+    var qs = pro ? pro.mod.quiz : LOC().levels[i].quiz, total = qs.length, min = Math.ceil(total * PASS_RATIO);
+    var bucket = pro ? state.progress.pro : state.progress, key = pro ? pro.m : i;
+    var doneBefore = bucket.passed.indexOf(key) >= 0;
     var wrap = el('section', { class: 'quiz', id: 'quiz', 'aria-labelledby': 'quizTitle' });
     var answeredText = el('span', { text: t('ui.quiz.answered', { a: 0, q: total }) });
     var meterBar = el('span');
     wrap.appendChild(el('div', { class: 'quiz-head' },
       el('div', null,
-        el('h2', { id: 'quizTitle' }, icon('trophy'), t('ui.quiz.title', { n: i })),
-        el('p', { text: i === LEVELS - 1 ? t('ui.quiz.hintLast', { q: total, min: min }) : t('ui.quiz.hint', { q: total, min: min }) }))));
-    if (isDone(i) && state.progress.scores[i] !== undefined) {
-      wrap.appendChild(el('div', { class: 'callout' }, icon('check'), el('p', { text: t('ui.quiz.previous', { p: state.progress.scores[i] }) })));
+        el('h2', { id: 'quizTitle' }, icon('trophy'), pro ? t('ui.premium.quizTitle') : t('ui.quiz.title', { n: i })),
+        el('p', { text: pro ? t('ui.premium.quizHint', { q: total, min: min }) : i === LEVELS - 1 ? t('ui.quiz.hintLast', { q: total, min: min }) : t('ui.quiz.hint', { q: total, min: min }) }))));
+    if (doneBefore && bucket.scores[key] !== undefined) {
+      wrap.appendChild(el('div', { class: 'callout' }, icon('check'), el('p', { text: t('ui.quiz.previous', { p: bucket.scores[key] }) })));
     }
     var form = el('form', { novalidate: true });
     form.appendChild(el('div', { class: 'quiz-meter', 'aria-live': 'polite' }, answeredText, el('div', { class: 'bar' }, meterBar)));
     var cards = qs.map(function (q, qi) {
-      var name = 'q' + i + '-' + qi;
+      var name = (pro ? 'p' : 'q') + key + '-' + qi;
       var fs = el('fieldset', { class: 'q-card' },
         el('legend', null, el('span', { class: 'qn', text: String(qi + 1) }), el('span', { text: q.q })),
         el('div', { class: 'opts' }, q.o.map(function (opt, oi) {
@@ -758,16 +796,18 @@
       submit.remove();
       var pct = Math.round(correct / total * 100), passed = correct >= min;
       if (passed) {
-        var wasDone = isDone(i);
-        if (!wasDone) state.progress.passed.push(i);
-        state.progress.scores[i] = Math.max(state.progress.scores[i] || 0, pct);
+        if (bucket.passed.indexOf(key) < 0) bucket.passed.push(key);
+        bucket.scores[key] = Math.max(bucket.scores[key] || 0, pct);
         state.progress = sanitizeProgress(state.progress);
         saveProgress();
-        var oldPager = $('.level-pager');
-        if (oldPager) oldPager.replaceWith(levelPager(i)); // el siguiente nivel aparece desbloqueado al momento
-        toast(i < LEVELS - 1 ? t('ui.quiz.unlocked', { n: i + 1 }) : t('ui.quiz.finished'), 'ok');
+        if (pro) toast(t('ui.premium.quizDone'), 'ok');
+        else {
+          var oldPager = $('.level-pager');
+          if (oldPager) oldPager.replaceWith(levelPager(i)); // el siguiente nivel aparece desbloqueado al momento
+          toast(i < LEVELS - 1 ? t('ui.quiz.unlocked', { n: i + 1 }) : t('ui.quiz.finished'), 'ok');
+        }
       }
-      showResult(result, i, correct, total, pct, passed, min);
+      showResult(result, i, correct, total, pct, passed, min, pro);
     });
     return wrap;
   }
@@ -786,9 +826,12 @@
     requestAnimationFrame(function () { requestAnimationFrame(function () { val.setAttribute('stroke-dashoffset', (c * (1 - pct / 100)).toFixed(1)); }); });
     return s;
   }
-  function showResult(box, i, correct, total, pct, passed, min) {
+  function showResult(box, i, correct, total, pct, passed, min, pro) {
     var actions = el('div', { class: 'quiz-actions' });
-    if (passed) {
+    if (passed && pro) {
+      if (pro.m < PRO_COUNT - 1) actions.appendChild(el('a', { class: 'btn btn-primary', href: '#/premium/module/' + (pro.m + 1) }, t('ui.premium.nextModule'), icon('right')));
+      actions.appendChild(el('a', { class: 'btn btn-ghost', href: '#/premium' }, t('ui.premium.back')));
+    } else if (passed) {
       if (i < LEVELS - 1) actions.appendChild(el('a', { class: 'btn btn-primary', href: '#/level/' + (i + 1) }, t('ui.quiz.goNext', { n: i + 1 }), icon('right')));
       actions.appendChild(el('a', { class: 'btn btn-ghost', href: '#/' }, t('ui.quiz.backRoute')));
     } else {
@@ -797,7 +840,7 @@
     var node = el('div', { class: 'quiz-result ' + (passed ? 'pass' : 'fail') }, scoreRing(pct),
       el('div', null,
         el('h3', { text: passed ? t('ui.quiz.passTitle') : t('ui.quiz.failTitle') }),
-        el('p', { text: passed ? t('ui.quiz.passText', { c: correct, q: total, p: pct }) + ' ' + (i < LEVELS - 1 ? t('ui.quiz.unlocked', { n: i + 1 }) + '.' : t('ui.quiz.finished'))
+        el('p', { text: passed ? t('ui.quiz.passText', { c: correct, q: total, p: pct }) + ' ' + (pro ? t('ui.premium.quizDone') : i < LEVELS - 1 ? t('ui.quiz.unlocked', { n: i + 1 }) + '.' : t('ui.quiz.finished'))
           : t('ui.quiz.failText', { c: correct, q: total, p: pct, min: min }) }),
         actions));
     box.replaceChildren(node);
@@ -1193,7 +1236,8 @@
       el('div', { class: 'panel' },
         head,
         el('div', { class: 'chat' }, log, suggest, bottom),
-        el('div', { class: 'ai-note' }, icon('info'), el('span', { text: t('ui.ai.disclaimer') }))))));
+        el('div', { class: 'ai-note' }, icon('info'), el('span', { text: t('ui.ai.disclaimer') })),
+        state.user && !isPremiumUser() ? el('a', { class: 'ai-upsell', href: '#/premium' }, icon('star'), t('ui.premium.aiMore', { n: AI_LIMIT_PREMIUM })) : null))));
   }
 
   /* ------------------------------------------------------------ */
@@ -1239,6 +1283,235 @@
     }).catch(function () {
       list.replaceChildren(el('div', { class: 'empty-state' }, icon('news'), el('p', { text: t('ui.res.unavailable') })));
     });
+  }
+
+  /* ------------------------------------------------------------ */
+  /* Premium                                                       */
+  /* ------------------------------------------------------------ */
+  var premiumCache = {}, toolsPromise = null, billingConfig = null;
+  function loadPremiumContent() {
+    var lang = state.lang;
+    if (premiumCache[lang]) return Promise.resolve(premiumCache[lang]);
+    return api('/premium/content?lang=' + encodeURIComponent(lang)).then(function (data) { premiumCache[lang] = data; return data; });
+  }
+  function loadPremiumTools() {
+    // El código de las herramientas lo entrega el servidor solo a suscriptores (no está en /public)
+    if (window.PremiumTools) return Promise.resolve(window.PremiumTools);
+    if (toolsPromise) return toolsPromise;
+    toolsPromise = new Promise(function (resolve, reject) {
+      var sc = document.createElement('script');
+      sc.src = '/api/premium/tools.js';
+      sc.onload = function () { window.PremiumTools ? resolve(window.PremiumTools) : reject(new ApiError('SERVER_ERROR')); };
+      sc.onerror = function () { toolsPromise = null; reject(new ApiError('PREMIUM_REQUIRED')); };
+      document.head.appendChild(sc);
+    });
+    return toolsPromise;
+  }
+  function loadBillingConfig() {
+    if (billingConfig) return Promise.resolve(billingConfig);
+    return api('/billing/config').then(function (c) { billingConfig = c; return c; }).catch(function () { return { enabled: false }; });
+  }
+  function fmtDate(ms) { return new Intl.DateTimeFormat(locale(), { day: 'numeric', month: 'long', year: 'numeric' }).format(new Date(ms)); }
+  function safeStripeUrl(u, host) {
+    try { var x = new URL(u); return x.protocol === 'https:' && x.hostname === host ? x.href : null; } catch (e) { return null; }
+  }
+
+  // Anuncios propios: solo para quien no es Premium. Sin terceros ni rastreo.
+  function adSlot(variant) {
+    if (isPremiumUser()) return null;
+    var ads = t('ui.premium.ads'), ad = ads[Math.abs(variant || 0) % ads.length];
+    return el('aside', { class: 'house-ad', 'aria-label': t('ui.premium.adLabel') },
+      el('span', { class: 'house-ad-label', text: t('ui.premium.adLabel') }),
+      el('span', { class: 'house-ad-icon' }, icon('star')),
+      el('div', { class: 'house-ad-text' }, el('b', { text: ad.h }), el('span', { text: ad.p.replace('{price}', t('ui.premium.price')) })),
+      el('div', { class: 'house-ad-side' },
+        el('a', { class: 'btn btn-amber btn-sm', href: '#/premium' }, t('ui.premium.adCta')),
+        el('small', { text: t('ui.premium.adHide') })));
+  }
+
+  function renderPremium(view, route) {
+    var section = el('section', { class: 'premium-view' }), wrap = el('div', { class: 'wrap' });
+    section.appendChild(wrap); view.appendChild(section);
+    if (!state.meLoaded) { wrap.appendChild(loadingBox()); return; }
+    if (route.sub === 'success') return premiumSuccess(wrap);
+    if (!isPremiumUser()) return premiumLanding(view, section, wrap, route.sub !== 'home');
+    wrap.appendChild(loadingBox());
+    var api2 = { t: t, el: el, icon: icon, locale: locale, money: money, levels: function () { return LOC().levels; }, confirm: confirmDialog, celebrate: confetti };
+    var need = route.sub === 'tool' || route.sub === 'exam' ? Promise.all([loadPremiumContent(), loadPremiumTools()]) : Promise.all([loadPremiumContent()]);
+    need.then(function (r) {
+      if (!wrap.isConnected) return;
+      var P = r[0];
+      wrap.replaceChildren();
+      if (route.sub === 'module') return premiumModule(view, section, wrap, route.id, P);
+      if (route.sub === 'tool' || route.sub === 'exam') {
+        wrap.appendChild(el('div', { class: 'crumbs' }, el('a', { class: 'link-btn', href: '#/premium' }, icon('left'), t('ui.premium.back'))));
+        var host = el('div', { class: 'lab-host' }); wrap.appendChild(host);
+        return route.sub === 'exam' ? window.PremiumTools.exam(host, api2, P) : window.PremiumTools[route.id](host, api2, P);
+      }
+      premiumDashboard(wrap, P);
+    }).catch(function (err) {
+      if (!wrap.isConnected) return;
+      handleAuthError(err);
+      wrap.replaceChildren(el('div', { class: 'empty-state' }, icon('alert'), el('p', { text: errorText(err.code) }),
+        el('button', { class: 'btn btn-primary btn-sm', type: 'button', onclick: function () { render(); } }, icon('refresh'), t('ui.common.retry'))));
+    });
+  }
+  function loadingBox() { return el('div', { class: 'empty-state' }, el('span', { class: 'spinner', 'aria-hidden': 'true' }), el('p', { text: t('ui.premium.loading') })); }
+
+  function premiumLanding(view, section, wrap, wasLocked) {
+    section.classList.add('premium-landing');
+    var consent = el('input', { type: 'checkbox', id: 'premiumConsent' });
+    var err = el('p', { class: 'form-error', role: 'alert' });
+    var cta = el('button', { class: 'btn btn-amber premium-cta', type: 'button' }, icon('star'), state.user ? t('ui.premium.cta') : t('ui.premium.ctaLogin'));
+    var note = el('p', { class: 'premium-secure' }, icon('lock'), t('ui.premium.secure'));
+    cta.addEventListener('click', function () {
+      err.textContent = '';
+      if (!state.user) { openAuth('register'); return; }
+      if (!consent.checked) { err.textContent = t('ui.premium.consentNeeded'); consent.focus(); return; }
+      cta.disabled = true;
+      cta.replaceChildren(el('span', { class: 'spinner', 'aria-hidden': 'true' }), ' ' + t('ui.premium.working'));
+      api('/billing/checkout', { method: 'POST', body: {} }).then(function (data) {
+        var url = safeStripeUrl(data.url, 'checkout.stripe.com');
+        if (!url) throw new ApiError('BILLING_ERROR');
+        window.location.assign(url);
+      }).catch(function (e) {
+        handleAuthError(e);
+        err.textContent = errorText(e.code);
+        cta.disabled = false;
+        cta.replaceChildren(icon('star'), t('ui.premium.cta'));
+      });
+    });
+    var priceCard = el('div', { class: 'price-card' },
+      el('span', { class: 'premium-badge' }, icon('star'), t('ui.premium.badge')),
+      el('div', { class: 'price' }, el('b', { text: t('ui.premium.price') }), el('span', { text: t('ui.premium.per') })),
+      el('p', { class: 'price-tax', text: t('ui.premium.taxNote') }),
+      state.user ? el('label', { class: 'check premium-consent', for: 'premiumConsent' }, consent, el('span', { text: t('ui.premium.consent') })) : null,
+      cta, err, note);
+    loadBillingConfig().then(function (c) {
+      if (!c.enabled && state.user) { cta.disabled = true; err.textContent = t('ui.premium.unavailable'); }
+    });
+    wrap.appendChild(el('div', { class: 'premium-hero' },
+      el('div', null,
+        wasLocked ? el('p', { class: 'premium-locked' }, icon('lock'), el('span', null, el('b', { text: t('ui.premium.lockedTitle') + '. ' }), t('ui.premium.lockedText'))) : null,
+        el('p', { class: 'hero-kicker' }, el('span', { class: 'hero-kicker-dot', 'aria-hidden': 'true' }), t('ui.brandTag')),
+        el('h1', { text: t('ui.premium.title') }),
+        el('p', { class: 'hero-lead', text: t('ui.premium.tagline') }),
+        el('ul', { class: 'premium-feats-mini' }, t('ui.premium.features').map(function (f) { return el('li', null, icon('check'), f.h); }))),
+      priceCard));
+
+    var feats = el('section', null, el('div', { class: 'wrap' },
+      sectionHead(t('ui.premium.featuresTitle')),
+      el('div', { class: 'premium-feats' }, t('ui.premium.features').map(function (f) {
+        return el('div', { class: 'info-card' }, icon(f.icon), el('h3', { text: f.h }), el('p', { text: f.p.replace('{n}', AI_LIMIT_PREMIUM).replace('{free}', AI_LIMIT_FREE) }));
+      }))));
+    var Y = t('ui.premium.yes'), N = t('ui.premium.no'), rows = t('ui.premium.compareRows');
+    var vals = [[Y, Y], [Y, Y], [Y, Y], [N, Y], [N, Y], [N, Y], [String(AI_LIMIT_FREE), String(AI_LIMIT_PREMIUM)], [N, Y]];
+    var compare = el('section', null, el('div', { class: 'wrap' },
+      sectionHead(t('ui.premium.compareTitle')),
+      el('div', { class: 'table-wrap', tabindex: '0', role: 'region', 'aria-label': t('ui.premium.compareTitle') }, el('table', { class: 'data compare' },
+        el('thead', null, el('tr', null, el('th', { scope: 'col', text: t('ui.premium.colFeature') }), el('th', { scope: 'col', text: t('ui.premium.colFree') }), el('th', { scope: 'col', class: 'col-pro', text: t('ui.premium.colPremium') }))),
+        el('tbody', null, rows.map(function (r, k) {
+          function cell(v, pro) { return el('td', { class: (pro ? 'col-pro ' : '') + (v === Y ? 'yes' : v === N ? 'no' : '') }, v === Y ? icon('check') : v === N ? icon('x') : null, el('span', { class: v === Y || v === N ? 'visually-hidden' : null, text: v })); }
+          return el('tr', null, el('td', { text: r }), cell(vals[k][0], false), cell(vals[k][1], true));
+        }))))));
+    var faq = el('section', null, el('div', { class: 'wrap' },
+      sectionHead(t('ui.premium.faqTitle')),
+      el('div', { class: 'faq' }, t('ui.premium.faq').map(function (f) {
+        return el('details', { class: 'deep' }, el('summary', null, icon('info'), el('span', null, el('b', { text: f.q })), icon('chev', 'chev')), el('div', { class: 'deep-body' }, el('p', { text: f.a })));
+      }))));
+    view.appendChild(feats); view.appendChild(compare); view.appendChild(faq);
+  }
+
+  function premiumSuccess(wrap) {
+    // Stripe redirige aquí tras pagar; el acceso se activa cuando llega su aviso firmado (webhook), normalmente en segundos.
+    var msg = el('p', { text: t('ui.premium.success') });
+    wrap.appendChild(el('div', { class: 'empty-state premium-success' }, el('span', { class: 'spinner', 'aria-hidden': 'true' }), msg));
+    var tries = 0;
+    (function poll() {
+      if (!wrap.isConnected) return;
+      api('/me').then(function (data) {
+        if (data.user) { state.user = data.user; if (data.progress) mergeProgress(data.progress); }
+        if (isPremiumUser()) { toast(t('ui.premium.successDone'), 'ok'); go('#/premium'); return; }
+        if (++tries < 15) setTimeout(poll, 2000); else msg.textContent = t('ui.premium.successSlow');
+      }).catch(function () { if (++tries < 15) setTimeout(poll, 2000); else msg.textContent = t('ui.premium.successSlow'); });
+    })();
+  }
+
+  function premiumDashboard(wrap, P) {
+    var pr = state.user.premium, status;
+    if (pr.manageable && !pr.cancelAtEnd) status = t('ui.premium.renews', { date: fmtDate(pr.until - 2 * 24 * 3600 * 1000) });
+    else if (pr.manageable) status = t('ui.premium.ends', { date: fmtDate(pr.until - 2 * 24 * 3600 * 1000) });
+    else status = t('ui.premium.until', { date: fmtDate(pr.until) });
+    var manage = null;
+    if (pr.manageable) {
+      manage = el('button', { class: 'btn btn-ghost btn-sm', type: 'button' }, icon('card'), t('ui.premium.manage'));
+      manage.addEventListener('click', function () {
+        manage.disabled = true;
+        api('/billing/portal', { method: 'POST', body: {} }).then(function (d) {
+          var url = safeStripeUrl(d.url, 'billing.stripe.com');
+          if (!url) throw new ApiError('BILLING_ERROR');
+          window.location.assign(url);
+        }).catch(function (e) { toast(errorText(e.code), 'err'); manage.disabled = false; });
+      });
+    }
+    var done = state.progress.pro.passed.length;
+    wrap.appendChild(el('div', { class: 'premium-dash-head' },
+      el('div', null,
+        el('span', { class: 'premium-badge' }, icon('star'), t('ui.premium.active')),
+        el('h1', { text: t('ui.premium.dashTitle') }),
+        el('p', { class: 'sub', text: status })),
+      manage));
+    wrap.appendChild(el('div', { class: 'route-summary' }, icon('target'),
+      el('strong', { text: t('ui.premium.proCompleted', { done: done, total: PRO_COUNT }) }),
+      el('div', { class: 'bar' }, (function () { var s2 = el('span', { class: 'route-fill' }); s2.style.width = Math.round(done / PRO_COUNT * 100) + '%'; return s2; })())));
+    wrap.appendChild(el('h2', { class: 'premium-h2', text: t('ui.premium.modulesTitle') }));
+    wrap.appendChild(el('div', { class: 'level-grid pro-grid' }, P.modules.map(function (m, i) {
+      var isDoneM = state.progress.pro.passed.indexOf(i) >= 0, sc = state.progress.pro.scores[i];
+      var meta = [isDoneM ? el('span', { class: 'pill pill-done' }, icon('check'), t('ui.route.status.done')) : el('span', { class: 'pill pill-pro' }, t('ui.premium.badge')),
+        el('span', { text: t('ui.route.min', { n: m.minutes }) })];
+      if (isDoneM && sc !== undefined) meta.push(el('span', { text: t('ui.route.score', { n: sc }) }));
+      return el('a', { class: 'level-card is-pro' + (isDoneM ? ' is-done' : ''), href: '#/premium/module/' + i },
+        el('span', { class: 'lc-icon' }, icon(PRO_ICONS[i])),
+        el('span', { class: 'lc-text' }, el('span', { class: 'lc-num', text: t('ui.premium.moduleN', { n: i + 1 }) }), el('h4', { text: m.title }), el('span', { class: 'lc-meta' }, meta)),
+        icon('right', 'lc-go'));
+    })));
+    wrap.appendChild(el('h2', { class: 'premium-h2', text: t('ui.premium.toolsTitle') }));
+    var cards = PRO_TOOLS.map(function (k) {
+      return el('a', { class: 'tool-card pro-tool', href: '#/premium/tool/' + k }, el('span', { class: 'tool-icon' }, icon(PRO_TOOL_ICONS[k])),
+        el('h3', { text: P.tools[k].h }), el('p', { text: P.tools[k].p }), icon('right', 'tool-go'));
+    });
+    cards.unshift(el('a', { class: 'tool-card pro-tool pro-exam', href: '#/premium/exam' }, el('span', { class: 'tool-icon' }, icon('trophy')),
+      el('h3', { text: P.exam.h }), el('p', { text: P.exam.p }), icon('right', 'tool-go')));
+    wrap.appendChild(el('div', { class: 'tools-grid pro-tools' }, cards));
+  }
+
+  function premiumModule(view, section, wrap, m, P) {
+    var mod = P.modules[m];
+    section.classList.add('premium-module');
+    wrap.appendChild(el('div', { class: 'crumbs' }, el('a', { class: 'link-btn', href: '#/premium' }, icon('left'), t('ui.premium.back'))));
+    var pills = [el('span', { class: 'pill pill-pro' }, icon('star'), t('ui.premium.badge')), el('span', null, icon('clock'), ' ' + t('ui.level.minutes', { n: mod.minutes }))];
+    if (state.progress.pro.passed.indexOf(m) >= 0) pills.push(el('span', { class: 'pill pill-done' }, icon('check'), t('ui.route.status.done')));
+    wrap.appendChild(el('div', { class: 'level-title' },
+      el('div', { class: 'big-icon pro' }, icon(PRO_ICONS[m])),
+      el('div', null,
+        el('div', { class: 'level-kicker' }, el('b', { text: t('ui.premium.moduleN', { n: m + 1 }) }), pills),
+        el('h1', { text: mod.title }),
+        el('p', { class: 'lede', text: mod.subtitle }))));
+    wrap.appendChild(el('div', { class: 'level-tools' },
+      el('button', { class: 'btn btn-ghost btn-sm', type: 'button', onclick: function () { scrollToId('quiz'); } }, icon('trophy'), t('ui.level.jumpQuiz'))));
+    var body = el('article', { class: 'level-body prose' });
+    body.appendChild(el('div', { class: 'essentials' }, el('h2', null, icon('spark'), t('ui.level.essentials')),
+      el('ol', null, mod.essentials.map(function (e) { return el('li', { text: e }); }))));
+    var toc = [];
+    mod.blocks.forEach(function (b, bi) { append(body, renderBlock(b, 'p' + m + '-' + bi, toc)); });
+    body.appendChild(renderQuiz(m, { m: m, mod: mod }));
+    var tocNav = el('nav', { class: 'toc', 'aria-label': t('ui.level.toc') }, el('h2', { text: t('ui.level.toc') }),
+      el('ol', null, toc.concat([{ id: 'quiz', h: t('ui.premium.quizTitle') }]).map(function (item) {
+        return el('li', null, el('a', { href: '#/premium/module/' + m, 'data-target': item.id, onclick: function (e) { e.preventDefault(); scrollToId(item.id); } }, item.h));
+      })));
+    view.appendChild(el('section', { class: 'level-body-wrap' }, body, tocNav));
+    watchToc();
+    setupReadProgress(true);
   }
 
   /* ------------------------------------------------------------ */
@@ -1477,6 +1750,8 @@
     window.addEventListener('hashchange', render);
     render();
     api('/me').then(function (data) {
+      state.meLoaded = true;
+      if (!data.user && state.route && state.route.name === 'premium') render();
       if (data.user) {
         state.user = data.user;
         if (data.progress) mergeProgress(data.progress);
@@ -1486,7 +1761,7 @@
         }
         render();
       }
-    }).catch(function () { /* sin servidor: la parte de aprendizaje funciona igualmente */ });
+    }).catch(function () { state.meLoaded = true; if (state.route && state.route.name === 'premium') render(); /* sin servidor: la parte de aprendizaje funciona igualmente */ });
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
   else init();

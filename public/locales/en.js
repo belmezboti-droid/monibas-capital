@@ -381,12 +381,132 @@ window.LOCALES.en = {
         "chartLabel": "Trade levels"
       }
     },
+    premium: {
+      "nav": "Premium",
+      "badge": "Premium",
+      "title": "Monibas Capital Premium",
+      "tagline": "For those who mean business: more content, more practice and zero ads.",
+      "price": "€4.99",
+      "per": "a month",
+      "taxNote": "VAT included. Cancel anytime, no commitment.",
+      "cta": "Go Premium",
+      "ctaLogin": "Log in or create an account to subscribe",
+      "working": "Opening secure checkout…",
+      "consent": "I want to access the Premium content now and I accept that, because it starts immediately, I lose the 14-day right of withdrawal.",
+      "consentNeeded": "Tick the box to continue.",
+      "secure": "Secure payment with Stripe. Your card details never touch our servers.",
+      "unavailable": "Payments aren't enabled on this site yet. Check back soon.",
+      "featuresTitle": "Everything that's included",
+      "features": [
+        {
+          "icon": "book",
+          "h": "4 Pro modules",
+          "p": "Taxation, derivatives, company valuation and advanced risk management, each with its own test."
+        },
+        {
+          "icon": "trophy",
+          "h": "Exam mode",
+          "p": "20 random questions from the whole path, against the clock, with results by topic."
+        },
+        {
+          "icon": "calc",
+          "h": "4 exclusive tools",
+          "p": "Monte Carlo trading simulation, the maths of losses, financial independence and DCF valuation."
+        },
+        {
+          "icon": "bot",
+          "h": "Expanded AI consultant",
+          "p": "Up to {n} questions an hour instead of {free}."
+        },
+        {
+          "icon": "shield",
+          "h": "No ads",
+          "p": "No banners, no promotions: just content."
+        }
+      ],
+      "compareTitle": "Free versus Premium",
+      "colFeature": "What's included",
+      "colFree": "Free",
+      "colPremium": "Premium",
+      "yes": "Yes",
+      "no": "No",
+      "compareRows": [
+        "8-level path with tests",
+        "Basic simulators and the “up or down?” challenge",
+        "Community forum",
+        "Pro modules with tests",
+        "Exam mode",
+        "Exclusive tools",
+        "AI questions per hour",
+        "Ad-free"
+      ],
+      "faqTitle": "Frequently asked questions",
+      "faq": [
+        {
+          "q": "Can I cancel at any time?",
+          "a": "Yes. From your Premium dashboard you go to the Stripe portal and cancel in one click. You keep access until the end of the period you've already paid for."
+        },
+        {
+          "q": "Is payment secure?",
+          "a": "It's processed by Stripe, one of the world's largest payment processors. We never see or store your card details."
+        },
+        {
+          "q": "What about the right of withdrawal?",
+          "a": "Because the digital content is available instantly, by subscribing you agree that the service starts straight away, which by law means waiving the 14-day right of withdrawal. Even so, you can cancel at any time so it doesn't renew."
+        },
+        {
+          "q": "Will Premium tell me what to invest in?",
+          "a": "No. Monibas Capital is an educational platform: Premium expands the learning and the tools, but it isn't personalised financial advice."
+        }
+      ],
+      "dashTitle": "Your Premium area",
+      "active": "Premium active",
+      "renews": "Renews on {date}.",
+      "ends": "Cancels on {date}; you keep access until then.",
+      "until": "Access active until {date}.",
+      "manage": "Manage subscription",
+      "modulesTitle": "Pro modules",
+      "toolsTitle": "Exclusive tools",
+      "examTitle": "Exam mode",
+      "moduleN": "Pro module {n}",
+      "open": "Open",
+      "loading": "Loading your Premium content…",
+      "back": "Back to your Premium area",
+      "success": "Thank you! We're activating your Premium…",
+      "successDone": "Welcome to Premium! Your subscription is now active.",
+      "successSlow": "Payment is complete, but activation is taking a little longer. Reload the page in a minute.",
+      "proCompleted": "{done} of {total} Pro modules completed",
+      "adLabel": "Monibas Capital advert",
+      "ads": [
+        {
+          "h": "Hungry for more?",
+          "p": "Unlock 4 Pro modules, exam mode and exclusive tools for {price} a month."
+        },
+        {
+          "h": "Put everything you know to the test",
+          "p": "Premium gives you an exam mode with questions from the whole path and results by topic."
+        },
+        {
+          "h": "Professional-grade tools",
+          "p": "Simulate 100 paths for your account with Monte Carlo or value companies with a DCF. Premium only."
+        }
+      ],
+      "adCta": "Discover Premium",
+      "adHide": "No ads with Premium",
+      "aiMore": "With Premium you'd have up to {n} questions an hour.",
+      "lockedTitle": "This is part of Premium",
+      "quizTitle": "Module test",
+      "quizHint": "{q} questions. Get {min} right (70%) to complete the module.",
+      "quizDone": "Pro module completed.",
+      "nextModule": "Next module",
+      "lockedText": "Subscribe to access this content and everything else Premium includes."
+    },
     footer: {
       explore: "Explore",
       rights: "All rights reserved.",
       disclaimer: "Educational content, not financial advice. Investing involves risk, including the loss of capital. Past performance does not guarantee future results.",
       sources: "Content based on guides from financial regulators and well-known investor communities. Last reviewed: September 2026.",
-      privacy: "We only use one technical cookie to keep you logged in. No ads, no trackers."
+      privacy: "We only use one technical cookie to keep you logged in. No third-party ads, no trackers."
     }
   },
 
@@ -408,6 +528,11 @@ window.LOCALES.en = {
     POST_NOT_FOUND: "That message no longer exists.",
     EMPTY_MESSAGE: "Write something before posting.",
     AI_DISABLED: "The AI consultant isn't enabled on this server. The administrator needs to set up the API key.",
+    PREMIUM_REQUIRED: "This content is exclusive to Monibas Capital Premium.",
+    BILLING_DISABLED: "Payments aren't enabled on this site yet. Please try again later.",
+    BILLING_ERROR: "We couldn't connect to the payment system. You haven't been charged: please try again in a few minutes.",
+    ALREADY_PREMIUM: "You already have Premium. You can manage it from your Premium dashboard.",
+    BAD_SIGNATURE: "The request signature is not valid.",
     AI_ERROR: "The consultant couldn't answer right now. Please try again in a moment."
   },
 

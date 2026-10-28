@@ -1,0 +1,968 @@
+{
+ "modules": [
+  {
+   "title": "Investor taxation",
+   "subtitle": "How your investments are taxed, how to pay only what's fair and which mistakes cost you dearly, with Spain as a detailed case study.",
+   "minutes": 16,
+   "essentials": [
+    "You're only taxed when you realise a gain (by selling) or receive income such as dividends and interest.",
+    "Well-managed losses reduce the tax you pay on your gains.",
+    "Time and the right vehicles (funds, pension plans, tax-advantaged accounts) make a big difference to the end result."
+   ],
+   "blocks": [
+    {
+     "t": "p",
+     "h": "The basic principle: tax on realisation",
+     "html": "While you don't sell, a rise is an <b>unrealised gain</b> and isn't taxed. When you sell, the difference between the sale price and the purchase price (after fees) is a <b>capital gain or loss</b>. Dividends and interest, on the other hand, are taxed in the year you receive them."
+    },
+    {
+     "t": "cards",
+     "h": "What gets taxed",
+     "items": [
+      {
+       "icon": "up",
+       "h": "Gains on sales",
+       "p": "The difference between what you get when you sell and what it cost you, including buying and selling fees."
+      },
+      {
+       "icon": "coins",
+       "h": "Dividends and interest",
+       "p": "They're added to your savings income in the year you receive them. In Spain, 19% is already withheld at source."
+      },
+      {
+       "icon": "globe",
+       "h": "Foreign income",
+       "p": "It may be taxed at source and in your country. Tax treaties prevent double taxation, but sometimes you have to claim it back."
+      }
+     ]
+    },
+    {
+     "t": "table",
+     "h": "Spain: savings income tax rates (2025-2026)",
+     "head": [
+      "Savings income band",
+      "Rate"
+     ],
+     "rows": [
+      [
+       "Up to €6,000",
+       "19%"
+      ],
+      [
+       "€6,000 to €50,000",
+       "21%"
+      ],
+      [
+       "€50,000 to €200,000",
+       "23%"
+      ],
+      [
+       "€200,000 to €300,000",
+       "27%"
+      ],
+      [
+       "Over €300,000",
+       "30%"
+      ]
+     ]
+    },
+    {
+     "t": "p",
+     "h": "A worked example",
+     "html": "You sell for €18,000 some shares you bought for €10,000: a gain of €8,000. You pay 19% on the first €6,000 (€1,140) and 21% on the remaining €2,000 (€420). That's <b>€1,560 in total</b>, an effective rate of 19.5%."
+    },
+    {
+     "t": "list",
+     "h": "The rules that save the most money in Spain",
+     "items": [
+      "<b>Offsetting losses:</b> losses on sales are deducted from gains in the same year. If losses remain, you can offset up to 25% of dividends and interest, and anything left over can be carried forward for the next <b>4 years</b>.",
+      "<b>Fund switches:</b> moving from one investment fund to another isn't taxed; you only pay when you redeem. This doesn't apply to ETFs or shares.",
+      "<b>The two-month rule:</b> if you sell listed securities at a loss and buy back equivalent securities in the two months before or after, you can't offset that loss until you sell the ones you bought back.",
+      "<b>FIFO:</b> when you sell part of a position bought in several instalments, you're deemed to sell the oldest units first.",
+      "<b>International double taxation:</b> foreign tax withheld on dividends can be deducted in your tax return up to the treaty limit (usually 15%)."
+     ]
+    },
+    {
+     "t": "balance",
+     "h": "Pension plans",
+     "pros": [
+      "Contributions reduce your general taxable income: up to €1,500 a year, rising to €10,000 with employer contributions.",
+      "The tax saving is greater the higher your marginal rate is today."
+     ],
+     "cons": [
+      "When you withdraw, the whole amount is taxed as employment income, not just the gain.",
+      "The money is locked in until retirement or specific situations, although since 2025 contributions made more than 10 years earlier can be withdrawn.",
+      "Many plans have high fees: compare them before signing up."
+     ]
+    },
+    {
+     "t": "callout",
+     "html": "<b>Reporting obligations:</b> if you hold more than €50,000 in securities, accounts or assets abroad (for example, with a foreign broker), you must file form 720, or form 721 for crypto-assets held outside Spain. It doesn't mean paying more, but forgetting can be expensive."
+    },
+    {
+     "t": "deep",
+     "h": "Tax efficiency: advanced ideas",
+     "blocks": [
+      {
+       "t": "list",
+       "items": [
+        "<b>Accumulating versus distributing:</b> an accumulating fund reinvests dividends without them being taxed, so it defers tax and makes the most of compounding.",
+        "<b>Tax-loss harvesting:</b> realising losses to offset gains, while respecting the two-month rule.",
+        "<b>Deferring is winning:</b> paying tax later is like an interest-free loan from the tax authority that keeps working for you.",
+        "<b>Other countries:</b> France has the PEA, the UK has the ISA and Germany has an annual allowance (the Sparer-Pauschbetrag) of €1,000 per person."
+       ]
+      },
+      {
+       "t": "callout",
+       "html": "Tax rules change. This information is general and up to date as of 2026: always check it with the tax authority or a tax adviser."
+      }
+     ]
+    }
+   ],
+   "quiz": [
+    {
+     "q": "When, in general, is a rise in the price of your shares taxed?",
+     "o": [
+      "Every 31 December, even if you don't sell",
+      "When you sell and realise the gain",
+      "Never, if it's long term",
+      "When the price rises by more than 10%"
+     ],
+     "a": 1,
+     "e": "Until you sell, the gain is unrealised and isn't taxed."
+    },
+    {
+     "q": "In Spain, what rate applies to the first €6,000 of savings income?",
+     "o": [
+      "15%",
+      "19%",
+      "21%",
+      "30%"
+     ],
+     "a": 1,
+     "e": "The first band of savings income is taxed at 19%."
+    },
+    {
+     "q": "You sell with a gain of €8,000. Roughly how much tax do you pay in Spain?",
+     "o": [
+      "€1,520",
+      "€1,560",
+      "€1,680",
+      "€2,400"
+     ],
+     "a": 1,
+     "e": "19% of €6,000 (€1,140) + 21% of €2,000 (€420) = €1,560."
+    },
+    {
+     "q": "For how many years can unused losses be carried forward in Spain?",
+     "o": [
+      "1",
+      "2",
+      "4",
+      "Indefinitely"
+     ],
+     "a": 2,
+     "e": "Unused losses can be applied over the following 4 years."
+    },
+    {
+     "q": "What advantage do switches between investment funds have in Spain?",
+     "o": [
+      "They aren't taxed until you redeem",
+      "They're tax-free forever",
+      "They reduce the income tax on your salary",
+      "They also apply to ETFs"
+     ],
+     "a": 0,
+     "e": "A switch defers the tax: you only pay when you redeem."
+    },
+    {
+     "q": "You sell at a loss and buy the same thing back the following month. What happens?",
+     "o": [
+      "You can still offset the loss",
+      "You can't offset that loss until you sell what you bought back",
+      "You pay a fine",
+      "The loss becomes a gain"
+     ],
+     "a": 1,
+     "e": "That's the two-month rule: the loss is put on hold."
+    },
+    {
+     "q": "Why can an accumulating fund be more tax-efficient?",
+     "o": [
+      "Because it never pays tax",
+      "Because it reinvests dividends without being taxed until you sell",
+      "Because it has lower fees",
+      "Because it guarantees a higher return"
+     ],
+     "a": 1,
+     "e": "By not paying out dividends, it defers tax and lets all your capital grow."
+    },
+    {
+     "q": "When do you have to file form 720?",
+     "o": [
+      "When you hold more than €50,000 in assets or securities abroad",
+      "When you buy any share",
+      "Only if you have losses",
+      "When you open an account with a Spanish bank"
+     ],
+     "a": 0,
+     "e": "It's an information return on assets and rights held abroad."
+    }
+   ]
+  },
+  {
+   "title": "Derivatives: options, futures and CFDs",
+   "subtitle": "What they are, how leverage works and why most retail investors lose money with them.",
+   "minutes": 18,
+   "essentials": [
+    "A derivative is a contract whose value depends on another asset: you don't buy the share, but a right or a bet on it.",
+    "Leverage multiplies gains and losses, and can wipe you out far faster than you think.",
+    "Used well, they help hedge risks; used to speculate, they're the quickest way to lose money."
+   ],
+   "blocks": [
+    {
+     "t": "cards",
+     "h": "The three most common derivatives",
+     "items": [
+      {
+       "icon": "target",
+       "h": "Options",
+       "p": "The right, but not the obligation, to buy (call) or sell (put) an asset at a set price (the strike) until a given date. You pay a premium for that right."
+      },
+      {
+       "icon": "clock",
+       "h": "Futures",
+       "p": "The obligation to buy or sell an asset at an agreed price on a future date. They trade on regulated exchanges and are settled daily."
+      },
+      {
+       "icon": "layers",
+       "h": "CFDs",
+       "p": "A contract with your broker for the difference in an asset's price. They don't trade on an official exchange: your counterparty is the broker itself."
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "h": "Leverage, in numbers",
+     "html": [
+      "With €1,000 and 5:1 leverage you control a €5,000 position. If the asset rises 10%, you make €500: <b>50%</b> on your money.",
+      "If it falls 10%, you lose €500, half your capital. And with a 20% fall, you lose everything. Leverage doesn't change the asset: it changes how quickly you're wiped out if you're wrong."
+     ]
+    },
+    {
+     "t": "table",
+     "h": "Maximum leverage for retail clients in the EU (ESMA)",
+     "head": [
+      "Asset",
+      "Maximum"
+     ],
+     "rows": [
+      [
+       "Major currency pairs",
+       "30:1"
+      ],
+      [
+       "Non-major currencies, gold and major indices",
+       "20:1"
+      ],
+      [
+       "Commodities (other than gold) and non-major indices",
+       "10:1"
+      ],
+      [
+       "Individual shares",
+       "5:1"
+      ],
+      [
+       "Crypto-assets",
+       "2:1"
+      ]
+     ]
+    },
+    {
+     "t": "callout",
+     "html": "By law, EU brokers must state what percentage of their retail clients lose money with CFDs: it's <b>the majority, usually between 60% and 85%</b>. ESMA also requires positions to be closed when margin falls to 50% and prohibits you from losing more than your account balance."
+    },
+    {
+     "t": "p",
+     "h": "Options: how you win and how you lose",
+     "html": [
+      "You buy a <b>call</b> with a €100 strike and pay a €4 premium. If the share is worth €115 at expiry, you make 15 − 4 = <b>€11 per share</b>. If it's worth €95, the option is worthless and you lose the €4 premium: an option buyer <b>never loses more than the premium</b>.",
+      "Whoever sold you the option takes the opposite bet: they collect the premium, but if the price soars their loss can be huge. That's why selling uncovered options is a game for professionals."
+     ]
+    },
+    {
+     "t": "list",
+     "h": "Sensible uses of derivatives",
+     "items": [
+      "<b>Protective put:</b> buying a put on a share you already own works as insurance against falls.",
+      "<b>Covered call:</b> selling calls on shares you own generates income in exchange for giving up some of the upside.",
+      "<b>Currency hedge:</b> locking in today the exchange rate for an investment in dollars.",
+      "<b>Portfolio hedge with futures:</b> temporarily reducing your stock market exposure without selling your positions."
+     ]
+    },
+    {
+     "t": "balance",
+     "h": "Derivatives in your portfolio?",
+     "pros": [
+      "They let you hedge specific risks at a known cost: the premium.",
+      "They make strategies possible that can't be built with shares alone.",
+      "A little capital buys a lot of exposure."
+     ],
+     "cons": [
+      "Leverage speeds up losses and psychological pressure.",
+      "Time works against the option buyer.",
+      "CFDs carry daily financing costs, and the broker is your counterparty."
+     ]
+    },
+    {
+     "t": "deep",
+     "h": "For those who want to go further",
+     "blocks": [
+      {
+       "t": "list",
+       "items": [
+        "<b>Time value:</b> an option's premium is the sum of its intrinsic value and its time value, which evaporates as expiry approaches.",
+        "<b>Implied volatility:</b> the more the asset is expected to move, the more expensive options become, both calls and puts.",
+        "<b>The Greeks:</b> delta (sensitivity to price), theta (to the passage of time), vega (to volatility) and gamma (how much delta changes).",
+        "<b>Contango and backwardation:</b> in commodity futures, rolling contracts can cost or add return. That's why some commodity ETFs drift away from the spot price."
+       ]
+      }
+     ]
+    }
+   ],
+   "quiz": [
+    {
+     "q": "What does buying a call option give you?",
+     "o": [
+      "The obligation to buy",
+      "The right, but not the obligation, to buy at a set price",
+      "A free share",
+      "A guaranteed dividend"
+     ],
+     "a": 1,
+     "e": "A call is a right to buy at an agreed price (the strike) until a given date."
+    },
+    {
+     "q": "With €1,000 and 5:1 leverage, the asset falls 10%. How much do you lose?",
+     "o": [
+      "€50",
+      "€100",
+      "€500",
+      "€1,000"
+     ],
+     "a": 2,
+     "e": "You control €5,000: 10% is €500, half your capital."
+    },
+    {
+     "q": "What is the maximum leverage in the EU for a retail client trading CFDs on individual shares?",
+     "o": [
+      "2:1",
+      "5:1",
+      "20:1",
+      "30:1"
+     ],
+     "a": 1,
+     "e": "ESMA caps CFDs on individual shares at 5:1."
+    },
+    {
+     "q": "What is the most an option buyer can lose?",
+     "o": [
+      "The premium paid",
+      "Twice the premium",
+      "An unlimited amount",
+      "Nothing, it's guaranteed"
+     ],
+     "a": 0,
+     "e": "If the option expires worthless, the buyer only loses the premium."
+    },
+    {
+     "q": "What is a protective put for?",
+     "o": [
+      "To multiply your gains",
+      "As insurance against falls in a share you already own",
+      "To collect dividends",
+      "To avoid tax"
+     ],
+     "a": 1,
+     "e": "The put gains value if the share falls, offsetting the loss."
+    },
+    {
+     "q": "Who is the counterparty in a CFD?",
+     "o": [
+      "An official exchange",
+      "The broker itself",
+      "The central bank",
+      "The company that issued the share"
+     ],
+     "a": 1,
+     "e": "CFDs are contracted directly with the broker, not on a regulated exchange."
+    },
+    {
+     "q": "What happens to an option's time value as expiry approaches?",
+     "o": [
+      "It increases",
+      "It stays the same",
+      "It gradually decreases",
+      "It doubles"
+     ],
+     "a": 2,
+     "e": "The less time left, the less the chance of the price moving in your favour is worth."
+    },
+    {
+     "q": "According to brokers' mandatory warnings, what share of retail clients lose money with CFDs?",
+     "o": [
+      "Around 10%",
+      "Around 30%",
+      "The majority, usually between 60% and 85%",
+      "None"
+     ],
+     "a": 2,
+     "e": "The mandatory warnings show that most retail accounts lose money."
+    }
+   ]
+  },
+  {
+   "title": "Valuing companies: DCF and multiples",
+   "subtitle": "Estimate what a business is really worth and decide whether its share price makes sense.",
+   "minutes": 18,
+   "essentials": [
+    "A company is worth the cash it will generate in the future, brought back to today's value.",
+    "Multiples (P/E, EV/EBITDA) make quick comparisons possible; a DCF forces you to think about the business.",
+    "Every model depends on assumptions: always insist on a margin of safety."
+   ],
+   "blocks": [
+    {
+     "t": "p",
+     "h": "The core idea",
+     "html": "A euro in ten years' time is worth less than a euro today, because today you could invest it. A <b>discounted cash flow (DCF)</b> estimates the free cash flow the company will generate each year and brings it back to present value with a <b>discount rate</b> that reflects the risk."
+    },
+    {
+     "t": "steps",
+     "h": "A DCF in five steps",
+     "items": [
+      "<b>Free cash flow (FCF):</b> the cash the business generates after investing to maintain itself and grow.",
+      "<b>Projection:</b> estimate how much that cash flow will grow over the next 5 to 10 years.",
+      "<b>Terminal value:</b> the value of all the years after that, assuming modest perpetual growth (2–3%).",
+      "<b>Discounting:</b> bring each cash flow back to today with the discount rate (for example, 8–10% for a mature company).",
+      "<b>From company value to share value:</b> subtract net debt and divide by the number of shares."
+     ]
+    },
+    {
+     "t": "table",
+     "h": "A complete example",
+     "head": [
+      "Item",
+      "Value"
+     ],
+     "rows": [
+      [
+       "Current free cash flow",
+       "€100m"
+      ],
+      [
+       "Growth in years 1–5",
+       "8% a year"
+      ],
+      [
+       "Discount rate",
+       "9%"
+      ],
+      [
+       "Perpetual growth",
+       "2.5%"
+      ],
+      [
+       "Present value of the cash flows for years 1–5",
+       "≈ €486m"
+      ],
+      [
+       "Present value of the terminal value",
+       "≈ €1,506m"
+      ],
+      [
+       "Enterprise value",
+       "≈ €1,992m"
+      ],
+      [
+       "Less net debt",
+       "€300m"
+      ],
+      [
+       "Value per share (50m shares)",
+       "≈ €33.85"
+      ]
+     ]
+    },
+    {
+     "t": "callout",
+     "html": "Notice that <b>three quarters of the value</b> comes from the terminal value: small changes in the discount rate or in perpetual growth move the result a lot. That's why a DCF gives a range, not an exact figure. Try it in the DCF calculator among the Premium tools."
+    },
+    {
+     "t": "cards",
+     "h": "The most useful multiples",
+     "items": [
+      {
+       "icon": "calc",
+       "h": "P/E",
+       "p": "Price ÷ earnings per share. Simple, although accounting profit can be dressed up."
+      },
+      {
+       "icon": "factory",
+       "h": "EV/EBITDA",
+       "p": "Enterprise value (including debt) ÷ operating profit before depreciation and amortisation. It lets you compare companies with different debt levels."
+      },
+      {
+       "icon": "wallet",
+       "h": "P/FCF",
+       "p": "Price ÷ free cash flow. It measures how much you pay for the real cash the business generates."
+      },
+      {
+       "icon": "book",
+       "h": "P/B",
+       "p": "Price ÷ book value. Useful for banks and insurers; less so for software companies."
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "h": "The margin of safety",
+     "html": "If you estimate that a share is worth €34 and it trades at €25, you have a <b>26% margin of safety</b>. Benjamin Graham, the father of value investing, advised buying only with a wide margin, because your estimates can be wrong."
+    },
+    {
+     "t": "list",
+     "h": "Common traps",
+     "items": [
+      "<b>Value traps:</b> a company can be cheap because its business is in decline.",
+      "<b>Optimistic growth:</b> few companies grow by more than 10% a year for a decade.",
+      "<b>Paying in shares:</b> if a company pays its employees in shares, it dilutes shareholders even though no cash goes out.",
+      "<b>Cyclical companies:</b> their P/E looks lowest right at the top of the cycle, when profits are exceptional."
+     ]
+    },
+    {
+     "t": "deep",
+     "h": "Fine-tuning the discount rate",
+     "blocks": [
+      {
+       "t": "list",
+       "items": [
+        "<b>WACC:</b> the weighted average of the cost of debt (after tax) and the cost of equity.",
+        "<b>Cost of equity:</b> usually estimated as the risk-free rate + beta × the market risk premium (the CAPM model).",
+        "<b>Sensitivity:</b> always calculate the value with several rates and growth figures. If the conclusion changes with a one-point difference, the investment isn't that clear."
+       ]
+      }
+     ]
+    }
+   ],
+   "quiz": [
+    {
+     "q": "What does a DCF estimate?",
+     "o": [
+      "The price the share will trade at tomorrow",
+      "The present value of the cash the company will generate",
+      "Next year's dividend",
+      "The company's debt"
+     ],
+     "a": 1,
+     "e": "A DCF adds up future cash flows brought back to today's value."
+    },
+    {
+     "q": "Why are future cash flows discounted?",
+     "o": [
+      "Because a future euro is worth less than a euro today",
+      "Because the law requires it",
+      "To pay less tax",
+      "Because cash flows always fall"
+     ],
+     "a": 0,
+     "e": "Today's money can be invested, and the future is also uncertain."
+    },
+    {
+     "q": "In the example, what share of the value comes from the terminal value?",
+     "o": [
+      "About a quarter",
+      "About half",
+      "About three quarters",
+      "None"
+     ],
+     "a": 2,
+     "e": "About 1,506 of 1,992 million: around 75%."
+    },
+    {
+     "q": "What advantage does EV/EBITDA have over P/E?",
+     "o": [
+      "It takes debt into account and lets you compare companies with different debt levels",
+      "It's easier to calculate",
+      "It's always lower",
+      "It includes dividends"
+     ],
+     "a": 0,
+     "e": "Enterprise value includes net debt, which P/E ignores."
+    },
+    {
+     "q": "According to your analysis, a share is worth €40 and trades at €30. What's your margin of safety?",
+     "o": [
+      "10%",
+      "25%",
+      "33%",
+      "75%"
+     ],
+     "a": 1,
+     "e": "1 − 30 ÷ 40 = 25%."
+    },
+    {
+     "q": "What is a value trap?",
+     "o": [
+      "A company that's cheap because its business is getting worse",
+      "A share that always rises",
+      "A type of order",
+      "An index fund"
+     ],
+     "a": 0,
+     "e": "It looks like a bargain, but the low price reflects real deterioration."
+    },
+    {
+     "q": "What perpetual growth rate is reasonable when calculating a terminal value?",
+     "o": [
+      "15%",
+      "10%",
+      "2–3%",
+      "−5%"
+     ],
+     "a": 2,
+     "e": "In the very long run, no company grows much faster than the economy."
+    },
+    {
+     "q": "Why can the P/E of a cyclical company be misleading at the top of the cycle?",
+     "o": [
+      "Because profits are exceptionally high, making the share look cheap",
+      "Because it has no profits",
+      "Because the company isn't listed",
+      "Because those companies have no P/E"
+     ],
+     "a": 0,
+     "e": "With peak profits, the P/E looks low just before they fall."
+    }
+   ]
+  },
+  {
+   "title": "Advanced risk management and trading psychology",
+   "subtitle": "The maths that separates those who survive in the markets from those who are wiped out.",
+   "minutes": 17,
+   "essentials": [
+    "What matters isn't being right often, but winning more when you're right than you lose when you're wrong.",
+    "Large losses are disproportionately hard to recover from.",
+    "A journal and written rules protect your money from your emotions."
+   ],
+   "blocks": [
+    {
+     "t": "p",
+     "h": "Expectancy",
+     "html": [
+      "A system's <b>expectancy</b> is what you win or lose on average per trade: (win rate × average win) − (loss rate × average loss).",
+      "With 40% of trades winning €3 and 60% losing €1, expectancy is 0.4 × 3 − 0.6 × 1 = <b>+€0.60 for every euro risked</b>. You can be wrong more often than you're right and still make money."
+     ]
+    },
+    {
+     "t": "table",
+     "h": "The asymmetry of losses",
+     "head": [
+      "If you lose…",
+      "…you need to gain"
+     ],
+     "rows": [
+      [
+       "10%",
+       "11.1%"
+      ],
+      [
+       "20%",
+       "25%"
+      ],
+      [
+       "30%",
+       "42.9%"
+      ],
+      [
+       "50%",
+       "100%"
+      ],
+      [
+       "75%",
+       "300%"
+      ],
+      [
+       "90%",
+       "900%"
+      ]
+     ]
+    },
+    {
+     "t": "callout",
+     "html": "That's why professionals obsess more about not losing much than about winning a lot. <b>Protecting your capital is the first rule</b>; growing it is the second."
+    },
+    {
+     "t": "list",
+     "h": "How to size your positions",
+     "items": [
+      "<b>Fixed fraction:</b> always risk the same percentage of your capital (for example, 1%) on each trade. After a bad run, positions shrink automatically.",
+      "<b>The Kelly criterion:</b> optimal fraction = p − (1 − p) ÷ R, where p is the win rate and R the reward-to-risk ratio. With p = 0.4 and R = 3, Kelly suggests 20%.",
+      "<b>Half Kelly:</b> Kelly is very aggressive and your estimates are never exact, so many professionals use half or less.",
+      "<b>Correlated risk:</b> five positions in the same sector aren't five different risks, but one big one."
+     ]
+    },
+    {
+     "t": "cards",
+     "h": "The enemies within",
+     "items": [
+      {
+       "icon": "heart",
+       "h": "Revenge trading",
+       "p": "Increasing your size after a loss to win it back quickly. It's the fastest way to turn a bad day into a disaster."
+      },
+      {
+       "icon": "clock",
+       "h": "Overtrading",
+       "p": "Opening trades out of boredom or a need for action. Each one pays fees and the spread."
+      },
+      {
+       "icon": "alert",
+       "h": "Moving the stop",
+       "p": "Pushing your stop-loss further away as the price approaches it. It turns a small, planned loss into a big one."
+      },
+      {
+       "icon": "target",
+       "h": "Confusing outcome and process",
+       "p": "A good decision can turn out badly and a bad one can turn out well. Judge whether you followed the plan, not just whether you made money."
+      }
+     ]
+    },
+    {
+     "t": "steps",
+     "h": "Your investment journal",
+     "items": [
+      "<b>Before entering:</b> note why you're entering, where your stop is, what your target is and how much you're risking.",
+      "<b>While it's open:</b> record any change to the plan and why.",
+      "<b>On exit:</b> note the result, how you felt and whether you kept to your rules.",
+      "<b>Every month:</b> calculate your win rate, your average win and loss and your real expectancy."
+     ]
+    },
+    {
+     "t": "balance",
+     "h": "Automatic rules",
+     "pros": [
+      "They eliminate heat-of-the-moment decisions.",
+      "They make your system measurable.",
+      "They protect you during bad runs."
+     ],
+     "cons": [
+      "No rule works in every market.",
+      "They demand discipline even when they hurt.",
+      "Too many rules can paralyse you."
+     ]
+    },
+    {
+     "t": "deep",
+     "h": "Ruin and variance",
+     "blocks": [
+      {
+       "t": "list",
+       "items": [
+        "<b>Losing streaks:</b> with a 50% win rate, a run of 6 or 7 losses in a row over 100 trades is normal. Your position size must be able to handle it.",
+        "<b>Risk of ruin:</b> the probability of losing so much capital that you can't recover. It grows very quickly as you increase the risk per trade.",
+        "<b>Monte Carlo simulations:</b> repeating a random sequence of trades with your statistics thousands of times shows the range of possible outcomes, not just the average. Try it in the Premium tools."
+       ]
+      }
+     ]
+    }
+   ],
+   "quiz": [
+    {
+     "q": "You're right 40% of the time with an average win of €3 and wrong 60% of the time with an average loss of €1. What's your expectancy per trade?",
+     "o": [
+      "−€0.60",
+      "€0",
+      "+€0.60",
+      "+€1.20"
+     ],
+     "a": 2,
+     "e": "0.4 × 3 − 0.6 × 1 = +€0.60."
+    },
+    {
+     "q": "If you lose 50% of your capital, how much do you need to gain to get it back?",
+     "o": [
+      "50%",
+      "75%",
+      "100%",
+      "150%"
+     ],
+     "a": 2,
+     "e": "With half the money, you have to double it to get back to where you started."
+    },
+    {
+     "q": "What does fixed-fraction sizing involve?",
+     "o": [
+      "Always risking the same percentage of capital per trade",
+      "Always buying the same number of shares",
+      "Doubling the bet after a loss",
+      "Eliminating risk"
+     ],
+     "a": 0,
+     "e": "Risk adjusts automatically to the size of the account."
+    },
+    {
+     "q": "According to Kelly, with p = 0.5 and R = 2, what fraction of capital should you risk?",
+     "o": [
+      "10%",
+      "25%",
+      "50%",
+      "75%"
+     ],
+     "a": 1,
+     "e": "0.5 − 0.5 ÷ 2 = 0.25."
+    },
+    {
+     "q": "Why do many professionals use half Kelly?",
+     "o": [
+      "Because Kelly is very aggressive and estimates are never exact",
+      "Because the law requires it",
+      "Because it always wins more",
+      "Because Kelly only works for options"
+     ],
+     "a": 0,
+     "e": "Reducing size cuts volatility a lot in exchange for a little return."
+    },
+    {
+     "q": "What is revenge trading?",
+     "o": [
+      "Increasing your size after a loss to win it back quickly",
+      "Selling at a high",
+      "Following a written plan",
+      "Diversifying"
+     ],
+     "a": 0,
+     "e": "It's an emotional reaction that usually makes losses bigger."
+    },
+    {
+     "q": "Why is it dangerous to move your stop-loss further away as the price approaches it?",
+     "o": [
+      "It turns a small, planned loss into a big one",
+      "It reduces fees",
+      "It guarantees a profit",
+      "It has no effect"
+     ],
+     "a": 0,
+     "e": "The stop exists to cap the loss you accepted in advance."
+    },
+    {
+     "q": "With a 50% win rate, is a run of 6 losses in a row over 100 trades unusual?",
+     "o": [
+      "Yes, it's almost impossible",
+      "No, it's fairly normal",
+      "It only happens with cryptocurrencies",
+      "Only if the system is bad"
+     ],
+     "a": 1,
+     "e": "The longest expected losing streak is around 6 or 7 in a row."
+    }
+   ]
+  }
+ ],
+ "tools": {
+  "montecarlo": {
+   "h": "Monte Carlo trading simulation",
+   "p": "Enter your statistics and see 100 possible paths for your account. Discover what the average doesn't tell you.",
+   "winRate": "Win rate",
+   "rr": "Average win ÷ average loss (R)",
+   "risk": "Risk per trade",
+   "trades": "Number of trades",
+   "run": "Run again",
+   "expectancy": "Expectancy per trade",
+   "median": "Median result",
+   "lossProb": "Probability of ending with a loss",
+   "ddMedian": "Median maximum drawdown",
+   "ruin": "Probability of losing half",
+   "chartLabel": "Growth of 100 simulated accounts",
+   "best": "Best path",
+   "worst": "Worst path",
+   "medianLine": "Median path",
+   "trade": "Trade",
+   "positive": "Your system has positive expectancy: in the long run it tends to make money, although there will be tough streaks along the way.",
+   "negative": "Your system has negative expectancy: the more trades you make, the more likely you are to lose.",
+   "note": "Each simulation uses random, independent trades with your statistics. Fees and slippage are not included."
+  },
+  "drawdown": {
+   "h": "The maths of losses",
+   "p": "Find out how much you need to gain to recover from a fall and how many years it could take.",
+   "loss": "Fall in your portfolio",
+   "annual": "Annual return to recover",
+   "need": "Gain needed",
+   "years": "Years to recover",
+   "yearsVal": "{n} years",
+   "chartLabel": "Gain needed depending on the fall",
+   "axisLoss": "Fall",
+   "axisGain": "Gain needed",
+   "explain": "A fall of {loss} requires a rise of {need}. At {r} a year it would take about {n} years to get back to where you started."
+  },
+  "fire": {
+   "h": "Financial independence",
+   "p": "Work out the wealth you'd need to live off your investments and how long it would take to build it.",
+   "expenses": "Annual spending you want to cover",
+   "rate": "Withdrawal rate",
+   "capital": "Current wealth",
+   "saving": "Monthly savings",
+   "real": "Real annual return (after inflation)",
+   "target": "Target wealth",
+   "years": "Years to independence",
+   "yearsVal": "{n} years",
+   "never": "Not reached within 60 years",
+   "monthlyIncome": "Sustainable monthly income",
+   "chartLabel": "Growth of your wealth towards the target",
+   "targetLine": "Target",
+   "progress": "You already have {p} of the target.",
+   "note": "The 4% rule comes from historical US studies (the Trinity Study): withdrawing 4% in the first year and adjusting for inflation lasted 30 years in most scenarios. It isn't a guarantee; for longer horizons, many people use 3–3.5%."
+  },
+  "dcf": {
+   "h": "DCF valuation calculator",
+   "p": "Estimate a share's intrinsic value from its free cash flow and compare it with its price.",
+   "fcf": "Current free cash flow (€m)",
+   "growth": "Annual growth in years 1–5",
+   "terminal": "Perpetual growth",
+   "discount": "Discount rate",
+   "debt": "Net debt (€m)",
+   "shares": "Shares outstanding (millions)",
+   "price": "Current share price (€)",
+   "value": "Intrinsic value per share",
+   "margin": "Margin of safety",
+   "tvShare": "Weight of terminal value",
+   "under": "Based on your assumptions, the share trades below its estimated value.",
+   "over": "Based on your assumptions, the share trades above its estimated value.",
+   "sensTitle": "Sensitivity: value per share by discount rate (rows) and perpetual growth (columns)",
+   "errRate": "The discount rate must be higher than perpetual growth.",
+   "note": "A DCF is only as good as its assumptions. Use the sensitivity table to see a reasonable range, not an exact figure."
+  }
+ },
+ "exam": {
+  "h": "Exam mode",
+  "p": "20 random questions from the whole path and the Pro modules, against the clock. Perfect for checking what you've really mastered.",
+  "rules": "You have 20 minutes. You can move between questions and change your answers until you submit.",
+  "start": "Start the exam",
+  "time": "Time left",
+  "question": "Question {n} of {total}",
+  "finish": "Finish and mark",
+  "timeUp": "Time's up",
+  "result": "You got {c} out of {q} right ({p})",
+  "byTopic": "Results by topic",
+  "review": "Review your mistakes",
+  "again": "New exam",
+  "correctAns": "Correct answer: {a}",
+  "yourAns": "Your answer: {a}",
+  "noAnswer": "Not answered",
+  "pro": "Pro",
+  "pass": "Well done! You've mastered most of the path.",
+  "fail": "Review the topics with the weakest results and try again.",
+  "prev": "Previous",
+  "next": "Next",
+  "unanswered": "You still have {n} unanswered questions. Mark the exam anyway?"
+ }
+}

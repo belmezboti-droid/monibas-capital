@@ -381,12 +381,132 @@ window.LOCALES.de = {
         "chartLabel": "Niveaus des Trades"
       }
     },
+    premium: {
+      "nav": "Premium",
+      "badge": "Premium",
+      "title": "Monibas Capital Premium",
+      "tagline": "Für alle, die es ernst meinen: mehr Inhalte, mehr Übung und keine Werbung.",
+      "price": "4,99 €",
+      "per": "pro Monat",
+      "taxNote": "Inklusive MwSt. Jederzeit kündbar, ohne Mindestlaufzeit.",
+      "cta": "Premium holen",
+      "ctaLogin": "Melde dich an oder erstelle ein Konto, um zu abonnieren",
+      "working": "Sichere Zahlung wird geöffnet …",
+      "consent": "Ich möchte sofort auf die Premium-Inhalte zugreifen und akzeptiere, dass ich wegen des sofortigen Beginns mein 14-tägiges Widerrufsrecht verliere.",
+      "consentNeeded": "Setze das Häkchen, um fortzufahren.",
+      "secure": "Sichere Zahlung mit Stripe. Deine Kartendaten erreichen nie unsere Server.",
+      "unavailable": "Zahlungen sind auf dieser Website noch nicht aktiviert. Schau bald wieder vorbei.",
+      "featuresTitle": "Das ist alles enthalten",
+      "features": [
+        {
+          "icon": "book",
+          "h": "4 Pro-Module",
+          "p": "Steuern, Derivate, Unternehmensbewertung und fortgeschrittenes Risikomanagement, jeweils mit Test."
+        },
+        {
+          "icon": "trophy",
+          "h": "Prüfungsmodus",
+          "p": "20 zufällige Fragen aus dem ganzen Lernweg, auf Zeit und mit Ergebnis nach Thema."
+        },
+        {
+          "icon": "calc",
+          "h": "4 exklusive Werkzeuge",
+          "p": "Monte-Carlo-Simulation fürs Trading, Mathematik der Verluste, finanzielle Unabhängigkeit und DCF-Bewertung."
+        },
+        {
+          "icon": "bot",
+          "h": "Erweiterter KI-Berater",
+          "p": "Bis zu {n} Fragen pro Stunde statt {free}."
+        },
+        {
+          "icon": "shield",
+          "h": "Keine Werbung",
+          "p": "Keine Banner, keine Promotion: nur Inhalte."
+        }
+      ],
+      "compareTitle": "Kostenlos oder Premium",
+      "colFeature": "Enthalten",
+      "colFree": "Kostenlos",
+      "colPremium": "Premium",
+      "yes": "Ja",
+      "no": "Nein",
+      "compareRows": [
+        "Lernweg mit 8 Stufen und Tests",
+        "Basis-Simulatoren und Challenge „steigt oder fällt?“",
+        "Community-Forum",
+        "Pro-Module mit Tests",
+        "Prüfungsmodus",
+        "Exklusive Werkzeuge",
+        "KI-Fragen pro Stunde",
+        "Werbefrei"
+      ],
+      "faqTitle": "Häufige Fragen",
+      "faq": [
+        {
+          "q": "Kann ich jederzeit kündigen?",
+          "a": "Ja. In deinem Premium-Bereich gelangst du zum Stripe-Portal und kündigst mit einem Klick. Der Zugang bleibt bis zum Ende des bezahlten Zeitraums bestehen."
+        },
+        {
+          "q": "Ist die Zahlung sicher?",
+          "a": "Sie wird von Stripe abgewickelt, einem der größten Zahlungsdienstleister der Welt. Wir sehen und speichern deine Kartendaten nie."
+        },
+        {
+          "q": "Was ist mit dem Widerrufsrecht?",
+          "a": "Da die digitalen Inhalte sofort verfügbar sind, stimmst du beim Abschluss dem sofortigen Beginn zu, was laut Gesetz den Verzicht auf das 14-tägige Widerrufsrecht bedeutet. Du kannst trotzdem jederzeit kündigen, damit sich das Abo nicht verlängert."
+        },
+        {
+          "q": "Sagt mir Premium, worin ich investieren soll?",
+          "a": "Nein. Monibas Capital ist eine Lernplattform: Premium erweitert Inhalte und Werkzeuge, ist aber keine persönliche Finanzberatung."
+        }
+      ],
+      "dashTitle": "Dein Premium-Bereich",
+      "active": "Premium aktiv",
+      "renews": "Verlängert sich am {date}.",
+      "ends": "Endet am {date}; bis dahin behältst du den Zugang.",
+      "until": "Zugang aktiv bis {date}.",
+      "manage": "Abo verwalten",
+      "modulesTitle": "Pro-Module",
+      "toolsTitle": "Exklusive Werkzeuge",
+      "examTitle": "Prüfungsmodus",
+      "moduleN": "Pro-Modul {n}",
+      "open": "Öffnen",
+      "loading": "Deine Premium-Inhalte werden geladen …",
+      "back": "Zurück zu deinem Premium-Bereich",
+      "success": "Danke! Wir aktivieren gerade dein Premium …",
+      "successDone": "Willkommen bei Premium! Dein Abo ist aktiv.",
+      "successSlow": "Die Zahlung ist abgeschlossen, die Aktivierung dauert aber etwas länger. Lade die Seite in einer Minute neu.",
+      "proCompleted": "{done} von {total} Pro-Modulen abgeschlossen",
+      "adLabel": "Anzeige von Monibas Capital",
+      "ads": [
+        {
+          "h": "Lust auf mehr?",
+          "p": "Schalte 4 Pro-Module, den Prüfungsmodus und exklusive Werkzeuge für {price} pro Monat frei."
+        },
+        {
+          "h": "Teste alles, was du weißt",
+          "p": "Mit Premium bekommst du einen Prüfungsmodus mit Fragen aus dem ganzen Lernweg und Ergebnissen nach Thema."
+        },
+        {
+          "h": "Werkzeuge wie die Profis",
+          "p": "Simuliere mit Monte Carlo 100 Verläufe für dein Konto oder bewerte Unternehmen per DCF. Nur in Premium."
+        }
+      ],
+      "adCta": "Premium entdecken",
+      "adHide": "Ohne Werbung mit Premium",
+      "aiMore": "Mit Premium hättest du bis zu {n} Fragen pro Stunde.",
+      "lockedTitle": "Das gehört zu Premium",
+      "quizTitle": "Modultest",
+      "quizHint": "{q} Fragen. Beantworte {min} richtig (70 %), um das Modul abzuschließen.",
+      "quizDone": "Pro-Modul abgeschlossen.",
+      "nextModule": "Nächstes Modul",
+      "lockedText": "Abonniere Premium, um auf diesen Inhalt und alles andere zuzugreifen, was Premium bietet."
+    },
     footer: {
       explore: "Entdecken",
       rights: "Alle Rechte vorbehalten.",
       disclaimer: "Bildungsinhalte, keine Finanzberatung. Investieren ist mit Risiken verbunden, einschließlich des Verlusts des eingesetzten Kapitals. Vergangene Wertentwicklungen sind keine Garantie für die Zukunft.",
       sources: "Inhalte auf Grundlage von Leitfäden der Finanzaufsichtsbehörden und bekannter Anlegergemeinschaften. Zuletzt überprüft: September 2026.",
-      privacy: "Wir verwenden nur ein technisch notwendiges Cookie, um dich angemeldet zu halten. Keine Werbung, kein Tracking."
+      privacy: "Wir verwenden nur ein technisch notwendiges Cookie, um dich angemeldet zu halten. Keine Fremdwerbung, kein Tracking."
     }
   },
 
@@ -408,6 +528,11 @@ window.LOCALES.de = {
     POST_NOT_FOUND: "Dieser Beitrag existiert nicht mehr.",
     EMPTY_MESSAGE: "Schreib etwas, bevor du veröffentlichst.",
     AI_DISABLED: "Der KI-Berater ist auf diesem Server nicht aktiviert. Der Administrator muss den API-Schlüssel einrichten.",
+    PREMIUM_REQUIRED: "Dieser Inhalt ist exklusiv für Monibas Capital Premium.",
+    BILLING_DISABLED: "Zahlungen sind auf dieser Website noch nicht aktiviert. Bitte versuch es später erneut.",
+    BILLING_ERROR: "Das Zahlungssystem ist gerade nicht erreichbar. Es wurde nichts abgebucht: Bitte versuch es in ein paar Minuten erneut.",
+    ALREADY_PREMIUM: "Du hast Premium bereits. Du kannst es in deinem Premium-Bereich verwalten.",
+    BAD_SIGNATURE: "Die Signatur der Anfrage ist ungültig.",
     AI_ERROR: "Der Berater konnte gerade nicht antworten. Bitte versuch es gleich noch einmal."
   },
 

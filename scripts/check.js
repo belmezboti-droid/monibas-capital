@@ -28,7 +28,7 @@ for (const l of LANGS) {
 const L = sandbox.window.LOCALES;
 
 // Textos que pueden coincidir legítimamente con el español (nombres propios, siglas, cifras…)
-const SAME_OK = /^(ETF|PER|PEG|ROE|RSI|TER|EBITDA|MiFID|CNMV|ISA|PEA|DCA|FOMO|Broker|Spread|Stop-loss|Take-profit|REIT|Blue chip|Benchmark|Tracking error|Bogleheads.*|Rankia|Investing\.com|Reuters|Bloomberg|ES|EN|FR|DE|Monibas Capital|Doji|Volumen|1 : \{n\}|Value investing|Growth|Disponible|\{n\} min|\{n\}\/600|[\d\s.,%€≈–-]+|.*https?:\/\/.*)$/i;
+const SAME_OK = /^(ETF|PER|PEG|ROE|RSI|TER|EBITDA|MiFID|CNMV|ISA|PEA|DCA|FOMO|Broker|Spread|Stop-loss|Take-profit|REIT|Blue chip|Benchmark|Tracking error|Bogleheads.*|Rankia|Investing\.com|Reuters|Bloomberg|ES|EN|FR|DE|Monibas Capital|Doji|Volumen|1 : \{n\}|Value investing|Growth|Disponible|\{n\} min|\{n\}\/600|Pro|CFD|EV\/EBITDA|P\/FCF|[\d\s.,:%€≈–×÷=+()−-]+|.*https?:\/\/.*)$/i;
 
 function placeholders(s) {
   return (s.match(/\{\w+\}/g) || []).sort().join(',');
@@ -132,8 +132,44 @@ const codes = new Set((serverSrc.match(/error: '([A-Z_]+)'/g) || []).map(m => m.
 codes.add('NETWORK');
 for (const c of codes) for (const lang of LANGS) if (!L[lang].errors[c]) errors.push(`[${lang}] falta la traducción del error ${c}`);
 
+// Contenido Premium (premium/*.json, servido solo a suscriptores): mismas reglas que el contenido gratuito
+const P = {};
+for (const lang of LANGS) {
+  try { P[lang] = JSON.parse(fs.readFileSync(path.join(ROOT, 'premium', lang + '.json'), 'utf8')); }
+  catch (e) { errors.push(`[premium/${lang}.json] no se puede leer: ${e.message}`); }
+}
+const iconSrc = fs.readFileSync(path.join(ROOT, 'public', 'js', 'app.js'), 'utf8');
+const ICON_NAMES = new Set((iconSrc.slice(iconSrc.indexOf('var ICONS = {'), iconSrc.indexOf('};', iconSrc.indexOf('var ICONS = {'))).match(/^\s+(\w+):/gm) || []).map(x => x.trim().slice(0, -1)));
+let proQuestions = 0;
+if (P.es) {
+  for (const lang of LANGS.slice(1)) if (P[lang]) walk(P.es, P[lang], lang, 'premium');
+  for (const lang of LANGS) {
+    if (!P[lang]) continue;
+    checkHtml(P[lang], lang, 'premium');
+    const mods = P[lang].modules || [];
+    if (mods.length !== 4) errors.push(`[premium/${lang}] hay ${mods.length} módulos (deben ser 4)`);
+    mods.forEach((m, i) => {
+      if (!m.quiz || m.quiz.length !== 8) errors.push(`[premium/${lang}] módulo ${i}: deben ser 8 preguntas`);
+      if (!m.essentials || m.essentials.length !== 3) errors.push(`[premium/${lang}] módulo ${i}: "lo esencial" debe tener 3 ideas`);
+      (m.quiz || []).forEach((q, j) => {
+        if (q.o.length !== 4) errors.push(`[premium/${lang}] módulo ${i} pregunta ${j}: debe tener 4 opciones`);
+        if (!Number.isInteger(q.a) || q.a < 0 || q.a > 3) errors.push(`[premium/${lang}] módulo ${i} pregunta ${j}: respuesta fuera de rango`);
+        if (lang !== 'es' && P.es.modules[i] && P.es.modules[i].quiz[j].a !== q.a) errors.push(`[premium/${lang}] módulo ${i} pregunta ${j}: la respuesta correcta no coincide con el español`);
+      });
+      JSON.stringify(m).replace(/"icon":"(\w+)"/g, (x, ic) => { if (!ICON_NAMES.has(ic)) errors.push(`[premium/${lang}] módulo ${i}: el icono «${ic}» no existe`); return x; });
+    });
+    if (lang === 'es') proQuestions = mods.reduce((a, m) => a + m.quiz.length, 0);
+  }
+  // Claves que usan las herramientas Premium (tt('...')) y el examen
+  const toolsPath = path.join(ROOT, 'premium', 'tools.js');
+  if (fs.existsSync(toolsPath)) {
+    const toolSrc = fs.readFileSync(toolsPath, 'utf8');
+    for (const m of toolSrc.matchAll(/tt\('([\w.]+)'/g)) if (!m[1].endsWith('.')) for (const lang of LANGS) if (P[lang] && get(P[lang], m[1]) === undefined) errors.push(`[premium/${lang}] falta la clave usada en tools.js: ${m[1]}`);
+  } else errors.push('Falta premium/tools.js');
+}
+
 // Sintaxis de todos los JS
-const jsFiles = ['server.js', 'scripts/check.js', 'public/js/app.js', 'public/js/charts.js', ...LANGS.map(l => `public/locales/${l}.js`)];
+const jsFiles = ['server.js', 'scripts/check.js', 'scripts/make-admin.js', 'scripts/grant-premium.js', 'premium/tools.js', 'public/js/app.js', 'public/js/charts.js', 'public/js/interactive.js', ...LANGS.map(l => `public/locales/${l}.js`)];
 for (const f of jsFiles) {
   try { execFileSync(process.execPath, ['--check', path.join(ROOT, f)], { stdio: 'pipe' }); }
   catch (e) { errors.push(`Sintaxis inválida en ${f}: ${String(e.stderr).split('\n').slice(0, 3).join(' ')}`); }
@@ -149,4 +185,4 @@ if (errors.length) {
   process.exit(1);
 }
 const qCount = L.es.levels.reduce((a, l) => a + l.quiz.length, 0);
-console.log(`\n✓ Todo correcto: ${LANGS.length} idiomas, ${L.es.levels.length} niveles, ${qCount} preguntas por idioma, ${used.size} claves de interfaz verificadas, ${codes.size} códigos de error traducidos.`);
+console.log(`\n✓ Todo correcto: ${LANGS.length} idiomas, ${L.es.levels.length} niveles, ${qCount} preguntas por idioma, ${used.size} claves de interfaz verificadas, ${codes.size} códigos de error traducidos. Premium: 4 módulos y ${proQuestions} preguntas por idioma.`);

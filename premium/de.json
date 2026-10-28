@@ -1,0 +1,968 @@
+{
+ "modules": [
+  {
+   "title": "Steuern für Anleger",
+   "subtitle": "Wie deine Geldanlagen besteuert werden, wie du nur das Nötige zahlst und welche Fehler teuer werden – mit Spanien als ausführlichem Beispiel.",
+   "minutes": 16,
+   "essentials": [
+    "Steuern fallen nur an, wenn du einen Gewinn realisierst (also verkaufst) oder Erträge wie Dividenden und Zinsen erhältst.",
+    "Gut genutzte Verluste senken die Steuer auf deine Gewinne.",
+    "Zeit und die richtigen Anlageformen (Fonds, Altersvorsorgepläne, steuerbegünstigte Konten) machen beim Endergebnis viel aus."
+   ],
+   "blocks": [
+    {
+     "t": "p",
+     "h": "Das Grundprinzip: Besteuerung bei Realisierung",
+     "html": "Solange du nicht verkaufst, ist ein Kursanstieg ein <b>Buchgewinn</b> und wird nicht besteuert. Beim Verkauf ist die Differenz zwischen Verkaufs- und Kaufpreis (abzüglich Kosten) ein <b>Veräußerungsgewinn oder -verlust</b>. Dividenden und Zinsen werden dagegen in dem Jahr besteuert, in dem du sie erhältst."
+    },
+    {
+     "t": "cards",
+     "h": "Was besteuert wird",
+     "items": [
+      {
+       "icon": "up",
+       "h": "Veräußerungsgewinne",
+       "p": "Die Differenz zwischen dem Verkaufserlös und deinen Anschaffungskosten, einschließlich der Kauf- und Verkaufsgebühren."
+      },
+      {
+       "icon": "coins",
+       "h": "Dividenden und Zinsen",
+       "p": "Sie zählen zu den Kapitalerträgen des Jahres, in dem du sie erhältst. In Spanien werden bereits 19 % an der Quelle einbehalten."
+      },
+      {
+       "icon": "globe",
+       "h": "Ausländische Erträge",
+       "p": "Sie können im Quellenstaat und in deinem Land besteuert werden. Doppelbesteuerungsabkommen verhindern das, manchmal muss man es aber zurückfordern."
+      }
+     ]
+    },
+    {
+     "t": "table",
+     "h": "Spanien: Steuersätze auf Kapitalerträge (2025–2026)",
+     "head": [
+      "Stufe der Kapitalerträge",
+      "Steuersatz"
+     ],
+     "rows": [
+      [
+       "Bis 6.000 €",
+       "19 %"
+      ],
+      [
+       "6.000 bis 50.000 €",
+       "21 %"
+      ],
+      [
+       "50.000 bis 200.000 €",
+       "23 %"
+      ],
+      [
+       "200.000 bis 300.000 €",
+       "27 %"
+      ],
+      [
+       "Über 300.000 €",
+       "30 %"
+      ]
+     ]
+    },
+    {
+     "t": "p",
+     "h": "Ein Rechenbeispiel",
+     "html": "Du verkaufst für 18.000 € Aktien, die du für 10.000 € gekauft hast: 8.000 € Gewinn. Du zahlst 19 % auf die ersten 6.000 € (1.140 €) und 21 % auf die restlichen 2.000 € (420 €). Insgesamt also <b>1.560 €</b>, effektiv 19,5 %."
+    },
+    {
+     "t": "list",
+     "h": "Die Regeln, die in Spanien am meisten sparen",
+     "items": [
+      "<b>Verlustverrechnung:</b> Veräußerungsverluste werden mit den Gewinnen desselben Jahres verrechnet. Bleibt ein Verlust übrig, kannst du bis zu 25 % der Dividenden und Zinsen damit verrechnen; der Rest wird auf die folgenden <b>4 Jahre</b> vorgetragen.",
+      "<b>Fondswechsel:</b> Der Wechsel von einem Investmentfonds in einen anderen ist steuerfrei; du zahlst erst bei der Rückgabe. Für ETFs und Aktien gilt das nicht.",
+      "<b>Die Zwei-Monats-Regel:</b> Verkaufst du börsennotierte Wertpapiere mit Verlust und kaufst in den zwei Monaten davor oder danach gleichartige Papiere, kannst du den Verlust erst geltend machen, wenn du die zurückgekauften verkaufst.",
+      "<b>FIFO:</b> Verkaufst du einen Teil einer Position, die du in mehreren Schritten gekauft hast, gelten die ältesten Anteile als zuerst verkauft.",
+      "<b>Internationale Doppelbesteuerung:</b> Ausländische Quellensteuer auf Dividenden kann in der Steuererklärung bis zur Grenze des Abkommens (meist 15 %) angerechnet werden."
+     ]
+    },
+    {
+     "t": "balance",
+     "h": "Altersvorsorgepläne",
+     "pros": [
+      "Die Beiträge senken das allgemeine zu versteuernde Einkommen: bis zu 1.500 € im Jahr, mit Arbeitgeberbeiträgen bis zu 10.000 €.",
+      "Die Steuerersparnis ist umso größer, je höher dein Grenzsteuersatz heute ist."
+     ],
+     "cons": [
+      "Bei der Auszahlung wird der gesamte Betrag als Arbeitseinkommen besteuert, nicht nur der Gewinn.",
+      "Das Geld ist bis zum Ruhestand oder bestimmten Ausnahmefällen gebunden, auch wenn seit 2025 Beiträge, die älter als 10 Jahre sind, ausgezahlt werden können.",
+      "Viele Pläne haben hohe Kosten: Vergleiche sie vor dem Abschluss."
+     ]
+    },
+    {
+     "t": "callout",
+     "html": "<b>Meldepflichten:</b> Hast du mehr als 50.000 € in Wertpapieren, Konten oder Vermögen im Ausland (etwa bei einem ausländischen Broker), musst du das Formular 720 einreichen, für im Ausland verwahrte Kryptowerte das Formular 721. Es bedeutet keine höhere Steuer, aber ein Versäumnis kann teuer werden."
+    },
+    {
+     "t": "deep",
+     "h": "Steuereffizienz: fortgeschrittene Ideen",
+     "blocks": [
+      {
+       "t": "list",
+       "items": [
+        "<b>Thesaurierend oder ausschüttend:</b> Ein thesaurierender Fonds legt die Dividenden ohne Umweg über das Finanzamt wieder an, schiebt so die Steuer auf und nutzt den Zinseszins voll aus.",
+        "<b>Verluste realisieren (Tax-Loss-Harvesting):</b> Verluste bewusst realisieren, um Gewinne auszugleichen – unter Beachtung der Zwei-Monats-Regel.",
+        "<b>Aufschieben lohnt sich:</b> Später Steuern zu zahlen ist wie ein zinsloser Kredit vom Finanzamt, der weiter für dich arbeitet.",
+        "<b>Andere Länder:</b> Frankreich hat den PEA, das Vereinigte Königreich das ISA und Deutschland einen jährlichen Sparer-Pauschbetrag von 1.000 € pro Person."
+       ]
+      },
+      {
+       "t": "callout",
+       "html": "Steuerregeln ändern sich. Diese Informationen sind allgemein und auf dem Stand von 2026: Prüfe sie immer bei der Finanzverwaltung oder einer Steuerberatung."
+      }
+     ]
+    }
+   ],
+   "quiz": [
+    {
+     "q": "Wann wird ein Kursanstieg deiner Aktien in der Regel besteuert?",
+     "o": [
+      "Jeden 31. Dezember, auch ohne Verkauf",
+      "Wenn du verkaufst und den Gewinn realisierst",
+      "Nie, wenn er langfristig ist",
+      "Wenn der Kurs um mehr als 10 % steigt"
+     ],
+     "a": 1,
+     "e": "Solange du nicht verkaufst, ist der Gewinn ein Buchgewinn und steuerfrei."
+    },
+    {
+     "q": "Welcher Steuersatz gilt in Spanien für die ersten 6.000 € Kapitalerträge?",
+     "o": [
+      "15 %",
+      "19 %",
+      "21 %",
+      "30 %"
+     ],
+     "a": 1,
+     "e": "Die erste Stufe der Kapitalerträge wird mit 19 % besteuert."
+    },
+    {
+     "q": "Du verkaufst mit 8.000 € Gewinn. Wie viel Steuer zahlst du in Spanien ungefähr?",
+     "o": [
+      "1.520 €",
+      "1.560 €",
+      "1.680 €",
+      "2.400 €"
+     ],
+     "a": 1,
+     "e": "19 % von 6.000 € (1.140 €) + 21 % von 2.000 € (420 €) = 1.560 €."
+    },
+    {
+     "q": "Wie viele Jahre lang können nicht verrechnete Verluste in Spanien vorgetragen werden?",
+     "o": [
+      "1",
+      "2",
+      "4",
+      "Unbegrenzt"
+     ],
+     "a": 2,
+     "e": "Nicht verrechnete Verluste können in den folgenden 4 Jahren genutzt werden."
+    },
+    {
+     "q": "Welchen Vorteil hat in Spanien der Wechsel zwischen Investmentfonds?",
+     "o": [
+      "Er wird erst bei der Rückgabe besteuert",
+      "Er ist für immer steuerfrei",
+      "Er senkt die Einkommensteuer auf dein Gehalt",
+      "Er gilt auch für ETFs"
+     ],
+     "a": 0,
+     "e": "Der Wechsel schiebt die Steuer auf: Du zahlst erst bei der Rückgabe."
+    },
+    {
+     "q": "Du verkaufst mit Verlust und kaufst dasselbe Papier im nächsten Monat zurück. Was passiert?",
+     "o": [
+      "Du kannst den Verlust trotzdem verrechnen",
+      "Du kannst den Verlust erst verrechnen, wenn du die zurückgekauften Papiere verkaufst",
+      "Du zahlst eine Strafe",
+      "Der Verlust wird zum Gewinn"
+     ],
+     "a": 1,
+     "e": "Das ist die Zwei-Monats-Regel: Der Verlust wird zurückgestellt."
+    },
+    {
+     "q": "Warum kann ein thesaurierender Fonds steuerlich effizienter sein?",
+     "o": [
+      "Weil er nie Steuern zahlt",
+      "Weil er die Dividenden bis zum Verkauf steuerfrei wieder anlegt",
+      "Weil er niedrigere Kosten hat",
+      "Weil er eine höhere Rendite garantiert"
+     ],
+     "a": 1,
+     "e": "Ohne Ausschüttungen wird die Steuer aufgeschoben, und das ganze Kapital kann wachsen."
+    },
+    {
+     "q": "Wann muss das Formular 720 eingereicht werden?",
+     "o": [
+      "Bei mehr als 50.000 € an Vermögen oder Wertpapieren im Ausland",
+      "Bei jedem Aktienkauf",
+      "Nur bei Verlusten",
+      "Bei der Kontoeröffnung bei einer spanischen Bank"
+     ],
+     "a": 0,
+     "e": "Es ist eine Meldung über Vermögen und Rechte im Ausland."
+    }
+   ]
+  },
+  {
+   "title": "Derivate: Optionen, Futures und CFDs",
+   "subtitle": "Was sie sind, wie der Hebel funktioniert und warum die meisten Privatanleger damit Geld verlieren.",
+   "minutes": 18,
+   "essentials": [
+    "Ein Derivat ist ein Vertrag, dessen Wert von einem anderen Wert abhängt: Du kaufst nicht die Aktie, sondern ein Recht oder eine Wette darauf.",
+    "Der Hebel vervielfacht Gewinne und Verluste und kann dich viel schneller ruinieren, als du denkst.",
+    "Richtig eingesetzt sichern sie Risiken ab; zum Spekulieren sind sie der schnellste Weg, Geld zu verlieren."
+   ],
+   "blocks": [
+    {
+     "t": "cards",
+     "h": "Die drei häufigsten Derivate",
+     "items": [
+      {
+       "icon": "target",
+       "h": "Optionen",
+       "p": "Das Recht, aber nicht die Pflicht, einen Wert zu einem festgelegten Preis (Strike) bis zu einem Datum zu kaufen (Call) oder zu verkaufen (Put). Für dieses Recht zahlst du eine Prämie."
+      },
+      {
+       "icon": "clock",
+       "h": "Futures",
+       "p": "Die Pflicht, einen Wert zu einem vereinbarten Preis an einem künftigen Termin zu kaufen oder zu verkaufen. Sie werden an regulierten Börsen gehandelt und täglich abgerechnet."
+      },
+      {
+       "icon": "layers",
+       "h": "CFDs",
+       "p": "Ein Vertrag mit deinem Broker über die Kursdifferenz eines Werts. Sie werden nicht an einer offiziellen Börse gehandelt: Dein Vertragspartner ist der Broker selbst."
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "h": "Der Hebel in Zahlen",
+     "html": [
+      "Mit 1.000 € und einem Hebel von 5:1 bewegst du eine Position von 5.000 €. Steigt der Wert um 10 %, verdienst du 500 €: <b>50 %</b> auf dein Geld.",
+      "Fällt er um 10 %, verlierst du 500 €, die Hälfte deines Kapitals. Bei einem Rückgang von 20 % ist alles weg. Der Hebel ändert nicht den Wert, sondern wie schnell du ruiniert bist, wenn du falschliegst."
+     ]
+    },
+    {
+     "t": "table",
+     "h": "Maximaler Hebel für Privatkunden in der EU (ESMA)",
+     "head": [
+      "Basiswert",
+      "Maximum"
+     ],
+     "rows": [
+      [
+       "Wichtige Währungspaare",
+       "30:1"
+      ],
+      [
+       "Andere Währungen, Gold und wichtige Indizes",
+       "20:1"
+      ],
+      [
+       "Rohstoffe (außer Gold) und andere Indizes",
+       "10:1"
+      ],
+      [
+       "Einzelaktien",
+       "5:1"
+      ],
+      [
+       "Kryptowerte",
+       "2:1"
+      ]
+     ]
+    },
+    {
+     "t": "callout",
+     "html": "EU-Broker müssen gesetzlich angeben, wie viel Prozent ihrer Privatkunden mit CFDs Geld verlieren: <b>die Mehrheit, meist zwischen 60 % und 85 %</b>. Außerdem schreibt die ESMA vor, Positionen zu schließen, wenn die Margin auf 50 % fällt, und verbietet Verluste über den Kontostand hinaus."
+    },
+    {
+     "t": "p",
+     "h": "Optionen: wie man gewinnt und wie man verliert",
+     "html": [
+      "Du kaufst einen <b>Call</b> mit Strike 100 € und zahlst eine Prämie von 4 €. Steht die Aktie bei Fälligkeit bei 115 €, verdienst du 15 − 4 = <b>11 € pro Aktie</b>. Steht sie bei 95 €, ist die Option wertlos und du verlierst die 4 € Prämie: Der Käufer einer Option <b>verliert nie mehr als die Prämie</b>.",
+      "Wer dir die Option verkauft hat, wettet dagegen: Er kassiert die Prämie, doch wenn der Kurs explodiert, kann sein Verlust riesig sein. Deshalb ist der ungedeckte Verkauf von Optionen etwas für Profis."
+     ]
+    },
+    {
+     "t": "list",
+     "h": "Sinnvolle Einsatzmöglichkeiten von Derivaten",
+     "items": [
+      "<b>Absichernder Put:</b> Ein Put auf eine Aktie, die du schon besitzt, wirkt wie eine Versicherung gegen Kursverluste.",
+      "<b>Gedeckter Call:</b> Calls auf eigene Aktien zu verkaufen bringt Einnahmen, dafür verzichtest du auf einen Teil des Kursanstiegs.",
+      "<b>Währungsabsicherung:</b> den Wechselkurs für eine Dollaranlage schon heute festschreiben.",
+      "<b>Depotabsicherung mit Futures:</b> das Aktienrisiko vorübergehend senken, ohne Positionen zu verkaufen."
+     ]
+    },
+    {
+     "t": "balance",
+     "h": "Derivate im Depot?",
+     "pros": [
+      "Sie sichern bestimmte Risiken zu bekannten Kosten ab: der Prämie.",
+      "Sie ermöglichen Strategien, die mit Aktien allein nicht möglich sind.",
+      "Mit wenig Kapital erreicht man viel Wirkung."
+     ],
+     "cons": [
+      "Der Hebel beschleunigt Verluste und psychischen Druck.",
+      "Die Zeit arbeitet gegen den Käufer von Optionen.",
+      "CFDs verursachen tägliche Finanzierungskosten, und der Broker ist dein Vertragspartner."
+     ]
+    },
+    {
+     "t": "deep",
+     "h": "Für alle, die tiefer einsteigen wollen",
+     "blocks": [
+      {
+       "t": "list",
+       "items": [
+        "<b>Zeitwert:</b> Die Prämie einer Option setzt sich aus innerem Wert und Zeitwert zusammen; der Zeitwert schmilzt, je näher die Fälligkeit rückt.",
+        "<b>Implizite Volatilität:</b> Je stärkere Kursbewegungen erwartet werden, desto teurer sind Optionen, Calls wie Puts.",
+        "<b>Die Griechen:</b> Delta (Kursempfindlichkeit), Theta (Zeit), Vega (Volatilität) und Gamma (wie stark sich das Delta ändert).",
+        "<b>Contango und Backwardation:</b> Bei Rohstoff-Futures kann das Rollen der Kontrakte Rendite kosten oder bringen. Deshalb entfernen sich manche Rohstoff-ETFs vom Kassakurs."
+       ]
+      }
+     ]
+    }
+   ],
+   "quiz": [
+    {
+     "q": "Was bekommst du, wenn du eine Call-Option kaufst?",
+     "o": [
+      "Die Pflicht zu kaufen",
+      "Das Recht, aber nicht die Pflicht, zu einem festgelegten Preis zu kaufen",
+      "Eine Gratisaktie",
+      "Eine garantierte Dividende"
+     ],
+     "a": 1,
+     "e": "Ein Call ist ein Kaufrecht zu einem vereinbarten Preis (Strike) bis zu einem Datum."
+    },
+    {
+     "q": "Mit 1.000 € und einem Hebel von 5:1 fällt der Basiswert um 10 %. Wie viel verlierst du?",
+     "o": [
+      "50 €",
+      "100 €",
+      "500 €",
+      "1.000 €"
+     ],
+     "a": 2,
+     "e": "Du bewegst 5.000 €: 10 % davon sind 500 €, die Hälfte deines Kapitals."
+    },
+    {
+     "q": "Wie hoch ist der maximale Hebel in der EU für Privatkunden bei CFDs auf Einzelaktien?",
+     "o": [
+      "2:1",
+      "5:1",
+      "20:1",
+      "30:1"
+     ],
+     "a": 1,
+     "e": "Die ESMA begrenzt CFDs auf Einzelaktien auf 5:1."
+    },
+    {
+     "q": "Wie viel kann der Käufer einer Option höchstens verlieren?",
+     "o": [
+      "Die gezahlte Prämie",
+      "Das Doppelte der Prämie",
+      "Einen unbegrenzten Betrag",
+      "Nichts, das ist garantiert"
+     ],
+     "a": 0,
+     "e": "Verfällt die Option wertlos, verliert der Käufer nur die Prämie."
+    },
+    {
+     "q": "Wozu dient ein absichernder Put?",
+     "o": [
+      "Um Gewinne zu vervielfachen",
+      "Als Versicherung gegen Kursverluste einer Aktie, die du schon besitzt",
+      "Um Dividenden zu kassieren",
+      "Um Steuern zu vermeiden"
+     ],
+     "a": 1,
+     "e": "Der Put gewinnt an Wert, wenn die Aktie fällt, und gleicht den Verlust aus."
+    },
+    {
+     "q": "Wer ist bei einem CFD dein Vertragspartner?",
+     "o": [
+      "Eine offizielle Börse",
+      "Der Broker selbst",
+      "Die Zentralbank",
+      "Das Unternehmen, das die Aktie ausgegeben hat"
+     ],
+     "a": 1,
+     "e": "CFDs werden direkt mit dem Broker abgeschlossen, nicht an einer regulierten Börse."
+    },
+    {
+     "q": "Was passiert mit dem Zeitwert einer Option, je näher die Fälligkeit rückt?",
+     "o": [
+      "Er steigt",
+      "Er bleibt gleich",
+      "Er nimmt nach und nach ab",
+      "Er verdoppelt sich"
+     ],
+     "a": 2,
+     "e": "Je weniger Zeit bleibt, desto weniger ist die Chance auf eine günstige Kursbewegung wert."
+    },
+    {
+     "q": "Welcher Anteil der Privatkunden verliert laut den Pflichthinweisen der Broker mit CFDs Geld?",
+     "o": [
+      "Etwa 10 %",
+      "Etwa 30 %",
+      "Die Mehrheit, meist zwischen 60 % und 85 %",
+      "Niemand"
+     ],
+     "a": 2,
+     "e": "Die Pflichthinweise zeigen, dass die meisten Privatkonten Geld verlieren."
+    }
+   ]
+  },
+  {
+   "title": "Unternehmen bewerten: DCF und Multiplikatoren",
+   "subtitle": "Schätze, was ein Unternehmen wirklich wert ist, und entscheide, ob sein Börsenkurs Sinn ergibt.",
+   "minutes": 18,
+   "essentials": [
+    "Ein Unternehmen ist so viel wert wie das Geld, das es künftig erwirtschaftet, abgezinst auf heute.",
+    "Multiplikatoren (KGV, EV/EBITDA) erlauben schnelle Vergleiche; das DCF-Modell zwingt dazu, über das Geschäft nachzudenken.",
+    "Jedes Modell hängt von Annahmen ab: Verlange immer eine Sicherheitsmarge."
+   ],
+   "blocks": [
+    {
+     "t": "p",
+     "h": "Die Kernidee",
+     "html": "Ein Euro in zehn Jahren ist weniger wert als ein Euro heute, denn heute könntest du ihn anlegen. Das <b>Discounted-Cashflow-Verfahren (DCF)</b> schätzt den freien Cashflow, den das Unternehmen jedes Jahr erwirtschaftet, und zinst ihn mit einem <b>Diskontierungssatz</b>, der das Risiko widerspiegelt, auf heute ab."
+    },
+    {
+     "t": "steps",
+     "h": "Ein DCF in fünf Schritten",
+     "items": [
+      "<b>Freier Cashflow (FCF):</b> das Geld, das das Geschäft nach den Investitionen für Erhalt und Wachstum erwirtschaftet.",
+      "<b>Prognose:</b> Schätze, wie stark dieser Cashflow in den nächsten 5 bis 10 Jahren wächst.",
+      "<b>Endwert:</b> der Wert aller folgenden Jahre, unter Annahme eines bescheidenen ewigen Wachstums (2–3 %).",
+      "<b>Abzinsung:</b> Zinse jeden Cashflow mit dem Diskontierungssatz auf heute ab (etwa 8–10 % für ein reifes Unternehmen).",
+      "<b>Vom Unternehmenswert zum Aktienwert:</b> Ziehe die Nettoverschuldung ab und teile durch die Zahl der Aktien."
+     ]
+    },
+    {
+     "t": "table",
+     "h": "Ein vollständiges Beispiel",
+     "head": [
+      "Posten",
+      "Wert"
+     ],
+     "rows": [
+      [
+       "Aktueller freier Cashflow",
+       "100 Mio. €"
+      ],
+      [
+       "Wachstum in Jahr 1–5",
+       "8 % pro Jahr"
+      ],
+      [
+       "Diskontierungssatz",
+       "9 %"
+      ],
+      [
+       "Ewiges Wachstum",
+       "2,5 %"
+      ],
+      [
+       "Barwert der Cashflows in Jahr 1–5",
+       "≈ 486 Mio. €"
+      ],
+      [
+       "Barwert des Endwerts",
+       "≈ 1.506 Mio. €"
+      ],
+      [
+       "Unternehmenswert",
+       "≈ 1.992 Mio. €"
+      ],
+      [
+       "Abzüglich Nettoverschuldung",
+       "300 Mio. €"
+      ],
+      [
+       "Wert je Aktie (50 Mio. Aktien)",
+       "≈ 33,85 €"
+      ]
+     ]
+    },
+    {
+     "t": "callout",
+     "html": "Beachte, dass <b>drei Viertel des Werts</b> aus dem Endwert stammen: Kleine Änderungen beim Diskontierungssatz oder beim ewigen Wachstum verschieben das Ergebnis stark. Deshalb liefert ein DCF eine Spanne, keine exakte Zahl. Probiere es im DCF-Rechner unter den Premium-Werkzeugen aus."
+    },
+    {
+     "t": "cards",
+     "h": "Die nützlichsten Multiplikatoren",
+     "items": [
+      {
+       "icon": "calc",
+       "h": "KGV",
+       "p": "Kurs ÷ Gewinn je Aktie. Einfach, obwohl der Buchgewinn geschönt sein kann."
+      },
+      {
+       "icon": "factory",
+       "h": "EV/EBITDA",
+       "p": "Unternehmenswert (inklusive Schulden) ÷ operativer Gewinn vor Abschreibungen. So lassen sich unterschiedlich verschuldete Unternehmen vergleichen."
+      },
+      {
+       "icon": "wallet",
+       "h": "KCV (P/FCF)",
+       "p": "Kurs ÷ freier Cashflow. Zeigt, wie viel du für das tatsächlich erwirtschaftete Geld zahlst."
+      },
+      {
+       "icon": "book",
+       "h": "KBV",
+       "p": "Kurs ÷ Buchwert. Nützlich bei Banken und Versicherern, wenig bei Softwareunternehmen."
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "h": "Die Sicherheitsmarge",
+     "html": "Schätzt du den Wert einer Aktie auf 34 € und notiert sie bei 25 €, hast du eine <b>Sicherheitsmarge von 26 %</b>. Benjamin Graham, der Vater des Value Investing, riet, nur mit großzügiger Marge zu kaufen, denn deine Schätzungen können falsch sein."
+    },
+    {
+     "t": "list",
+     "h": "Typische Fallen",
+     "items": [
+      "<b>Value-Fallen:</b> Ein Unternehmen kann billig sein, weil sein Geschäft schrumpft.",
+      "<b>Optimistisches Wachstum:</b> Nur wenige Unternehmen wachsen ein Jahrzehnt lang um mehr als 10 % pro Jahr.",
+      "<b>Bezahlung in Aktien:</b> Vergütet ein Unternehmen seine Mitarbeitenden mit Aktien, verwässert es die Aktionäre, auch wenn kein Geld abfließt.",
+      "<b>Zyklische Unternehmen:</b> Ihr KGV wirkt ausgerechnet am Hochpunkt des Zyklus am niedrigsten, wenn die Gewinne außergewöhnlich hoch sind."
+     ]
+    },
+    {
+     "t": "deep",
+     "h": "Den Diskontierungssatz verfeinern",
+     "blocks": [
+      {
+       "t": "list",
+       "items": [
+        "<b>WACC:</b> der gewichtete Durchschnitt aus Fremdkapitalkosten (nach Steuern) und Eigenkapitalkosten.",
+        "<b>Eigenkapitalkosten:</b> meist geschätzt als risikofreier Zins + Beta × Marktrisikoprämie (CAPM).",
+        "<b>Sensitivität:</b> Berechne den Wert immer mit mehreren Sätzen und Wachstumsraten. Ändert sich das Ergebnis schon bei einem Prozentpunkt Unterschied, ist die Anlage nicht so eindeutig."
+       ]
+      }
+     ]
+    }
+   ],
+   "quiz": [
+    {
+     "q": "Was schätzt ein DCF?",
+     "o": [
+      "Den Aktienkurs von morgen",
+      "Den heutigen Wert des Geldes, das das Unternehmen erwirtschaften wird",
+      "Die Dividende des nächsten Jahres",
+      "Die Schulden des Unternehmens"
+     ],
+     "a": 1,
+     "e": "Ein DCF addiert die künftigen Cashflows, abgezinst auf heute."
+    },
+    {
+     "q": "Warum werden künftige Cashflows abgezinst?",
+     "o": [
+      "Weil ein künftiger Euro weniger wert ist als ein Euro heute",
+      "Weil es gesetzlich vorgeschrieben ist",
+      "Um weniger Steuern zu zahlen",
+      "Weil Cashflows immer sinken"
+     ],
+     "a": 0,
+     "e": "Heutiges Geld kann angelegt werden, und die Zukunft ist zudem unsicher."
+    },
+    {
+     "q": "Welcher Anteil des Werts stammt im Beispiel aus dem Endwert?",
+     "o": [
+      "Etwa ein Viertel",
+      "Etwa die Hälfte",
+      "Etwa drei Viertel",
+      "Gar keiner"
+     ],
+     "a": 2,
+     "e": "Rund 1.506 von 1.992 Millionen: etwa 75 %."
+    },
+    {
+     "q": "Welchen Vorteil hat EV/EBITDA gegenüber dem KGV?",
+     "o": [
+      "Es berücksichtigt die Schulden und erlaubt den Vergleich unterschiedlich verschuldeter Unternehmen",
+      "Es ist leichter zu berechnen",
+      "Es ist immer niedriger",
+      "Es enthält die Dividenden"
+     ],
+     "a": 0,
+     "e": "Der Unternehmenswert enthält die Nettoverschuldung, die das KGV ignoriert."
+    },
+    {
+     "q": "Laut deiner Analyse ist eine Aktie 40 € wert und notiert bei 30 €. Wie groß ist deine Sicherheitsmarge?",
+     "o": [
+      "10 %",
+      "25 %",
+      "33 %",
+      "75 %"
+     ],
+     "a": 1,
+     "e": "1 − 30 ÷ 40 = 25 %."
+    },
+    {
+     "q": "Was ist eine Value-Falle?",
+     "o": [
+      "Ein Unternehmen, das billig ist, weil sein Geschäft schlechter wird",
+      "Eine Aktie, die immer steigt",
+      "Ein Ordertyp",
+      "Ein Indexfonds"
+     ],
+     "a": 0,
+     "e": "Sie wirkt wie ein Schnäppchen, doch der niedrige Kurs spiegelt eine echte Verschlechterung wider."
+    },
+    {
+     "q": "Welches ewige Wachstum ist für einen Endwert vernünftig?",
+     "o": [
+      "15 %",
+      "10 %",
+      "2–3 %",
+      "−5 %"
+     ],
+     "a": 2,
+     "e": "Auf sehr lange Sicht wächst kein Unternehmen deutlich schneller als die Wirtschaft."
+    },
+    {
+     "q": "Warum kann das KGV eines zyklischen Unternehmens am Hochpunkt des Zyklus täuschen?",
+     "o": [
+      "Weil der Gewinn außergewöhnlich hoch ist und die Aktie billig aussehen lässt",
+      "Weil es keine Gewinne hat",
+      "Weil das Unternehmen nicht börsennotiert ist",
+      "Weil solche Unternehmen kein KGV haben"
+     ],
+     "a": 0,
+     "e": "Bei Spitzengewinnen wirkt das KGV niedrig – kurz bevor die Gewinne sinken."
+    }
+   ]
+  },
+  {
+   "title": "Fortgeschrittenes Risikomanagement und Trading-Psychologie",
+   "subtitle": "Die Mathematik, die trennt, wer an den Märkten überlebt und wer sich ruiniert.",
+   "minutes": 17,
+   "essentials": [
+    "Entscheidend ist nicht, oft recht zu haben, sondern mehr zu gewinnen, wenn du richtigliegst, als du verlierst, wenn du falschliegst.",
+    "Große Verluste sind unverhältnismäßig schwer wieder aufzuholen.",
+    "Ein Tagebuch und schriftliche Regeln schützen dein Geld vor deinen Emotionen."
+   ],
+   "blocks": [
+    {
+     "t": "p",
+     "h": "Der Erwartungswert",
+     "html": [
+      "Der <b>Erwartungswert</b> eines Systems ist das, was du im Schnitt pro Trade gewinnst oder verlierst: (Trefferquote × Durchschnittsgewinn) − (Fehlerquote × Durchschnittsverlust).",
+      "Gewinnen 40 % deiner Trades je 3 € und verlieren 60 % je 1 €, beträgt der Erwartungswert 0,4 × 3 − 0,6 × 1 = <b>+0,60 € pro riskiertem Euro</b>. Man kann öfter falsch- als richtigliegen und trotzdem Geld verdienen."
+     ]
+    },
+    {
+     "t": "table",
+     "h": "Die Asymmetrie von Verlusten",
+     "head": [
+      "Wenn du verlierst …",
+      "… musst du gewinnen"
+     ],
+     "rows": [
+      [
+       "10 %",
+       "11,1 %"
+      ],
+      [
+       "20 %",
+       "25 %"
+      ],
+      [
+       "30 %",
+       "42,9 %"
+      ],
+      [
+       "50 %",
+       "100 %"
+      ],
+      [
+       "75 %",
+       "300 %"
+      ],
+      [
+       "90 %",
+       "900 %"
+      ]
+     ]
+    },
+    {
+     "t": "callout",
+     "html": "Deshalb achten Profis mehr darauf, nicht viel zu verlieren, als viel zu gewinnen. <b>Kapital schützen ist die erste Regel</b>; es zu vermehren, die zweite."
+    },
+    {
+     "t": "list",
+     "h": "Wie du Positionen dimensionierst",
+     "items": [
+      "<b>Fester Anteil:</b> bei jedem Trade immer denselben Prozentsatz des Kapitals riskieren (zum Beispiel 1 %). Nach einer Pechsträhne werden die Positionen automatisch kleiner.",
+      "<b>Kelly-Kriterium:</b> optimaler Anteil = p − (1 − p) ÷ R, wobei p die Trefferquote und R das Chance-Risiko-Verhältnis ist. Bei p = 0,4 und R = 3 schlägt Kelly 20 % vor.",
+      "<b>Halber Kelly:</b> Kelly ist sehr aggressiv, und deine Schätzungen sind nie exakt; viele Profis nutzen daher die Hälfte oder weniger.",
+      "<b>Korreliertes Risiko:</b> Fünf Positionen in derselben Branche sind nicht fünf verschiedene Risiken, sondern ein großes."
+     ]
+    },
+    {
+     "t": "cards",
+     "h": "Die inneren Feinde",
+     "items": [
+      {
+       "icon": "heart",
+       "h": "Rache-Trading",
+       "p": "Nach einem Verlust die Positionsgröße erhöhen, um ihn schnell wieder reinzuholen. Der schnellste Weg, aus einem schlechten Tag eine Katastrophe zu machen."
+      },
+      {
+       "icon": "clock",
+       "h": "Übertrading",
+       "p": "Trades aus Langeweile oder Tatendrang eröffnen. Jeder einzelne kostet Gebühren und Spread."
+      },
+      {
+       "icon": "alert",
+       "h": "Den Stop verschieben",
+       "p": "Den Stop-Loss weiter wegsetzen, wenn der Kurs näher kommt. So wird aus einem kleinen, geplanten Verlust ein großer."
+      },
+      {
+       "icon": "target",
+       "h": "Ergebnis und Prozess verwechseln",
+       "p": "Eine gute Entscheidung kann schiefgehen und eine schlechte gut ausgehen. Bewerte, ob du dem Plan gefolgt bist, nicht nur, ob du gewonnen hast."
+      }
+     ]
+    },
+    {
+     "t": "steps",
+     "h": "Dein Anlagetagebuch",
+     "items": [
+      "<b>Vor dem Einstieg:</b> Notiere, warum du einsteigst, wo dein Stop liegt, was dein Ziel ist und wie viel du riskierst.",
+      "<b>Während des Trades:</b> Halte fest, ob du etwas am Plan änderst und warum.",
+      "<b>Beim Ausstieg:</b> Notiere das Ergebnis, wie du dich gefühlt hast und ob du deine Regeln eingehalten hast.",
+      "<b>Jeden Monat:</b> Berechne deine Trefferquote, deinen Durchschnittsgewinn und -verlust und deinen tatsächlichen Erwartungswert."
+     ]
+    },
+    {
+     "t": "balance",
+     "h": "Automatische Regeln",
+     "pros": [
+      "Sie verhindern Entscheidungen im Affekt.",
+      "Sie machen dein System messbar.",
+      "Sie schützen dich in Pechsträhnen."
+     ],
+     "cons": [
+      "Keine Regel funktioniert an allen Märkten.",
+      "Sie verlangen Disziplin, auch wenn es wehtut.",
+      "Zu viele Regeln können lähmen."
+     ]
+    },
+    {
+     "t": "deep",
+     "h": "Ruin und Varianz",
+     "blocks": [
+      {
+       "t": "list",
+       "items": [
+        "<b>Serien:</b> Bei 50 % Trefferquote sind 6 oder 7 Verluste in Folge innerhalb von 100 Trades normal. Deine Positionsgröße muss das aushalten.",
+        "<b>Ruinrisiko:</b> die Wahrscheinlichkeit, so viel Kapital zu verlieren, dass du dich nicht mehr erholst. Es steigt sehr schnell, wenn du das Risiko pro Trade erhöhst.",
+        "<b>Monte-Carlo-Simulationen:</b> Wer eine zufällige Abfolge von Trades mit seinen Kennzahlen tausendfach wiederholt, sieht die Bandbreite möglicher Ergebnisse, nicht nur den Durchschnitt. Probiere es in den Premium-Werkzeugen aus."
+       ]
+      }
+     ]
+    }
+   ],
+   "quiz": [
+    {
+     "q": "Du liegst in 40 % der Fälle richtig mit 3 € Durchschnittsgewinn und in 60 % falsch mit 1 € Durchschnittsverlust. Wie hoch ist dein Erwartungswert pro Trade?",
+     "o": [
+      "−0,60 €",
+      "0 €",
+      "+0,60 €",
+      "+1,20 €"
+     ],
+     "a": 2,
+     "e": "0,4 × 3 − 0,6 × 1 = +0,60 €."
+    },
+    {
+     "q": "Wenn du 50 % deines Kapitals verlierst, wie viel musst du gewinnen, um es zurückzuholen?",
+     "o": [
+      "50 %",
+      "75 %",
+      "100 %",
+      "150 %"
+     ],
+     "a": 2,
+     "e": "Mit der Hälfte des Geldes musst du es verdoppeln, um wieder am Start zu sein."
+    },
+    {
+     "q": "Was bedeutet die Methode des festen Anteils?",
+     "o": [
+      "Pro Trade immer denselben Prozentsatz des Kapitals riskieren",
+      "Immer dieselbe Zahl an Aktien kaufen",
+      "Nach einem Verlust den Einsatz verdoppeln",
+      "Das Risiko beseitigen"
+     ],
+     "a": 0,
+     "e": "Das Risiko passt sich automatisch der Kontogröße an."
+    },
+    {
+     "q": "Welchen Anteil des Kapitals solltest du laut Kelly bei p = 0,5 und R = 2 riskieren?",
+     "o": [
+      "10 %",
+      "25 %",
+      "50 %",
+      "75 %"
+     ],
+     "a": 1,
+     "e": "0,5 − 0,5 ÷ 2 = 0,25."
+    },
+    {
+     "q": "Warum nutzen viele Profis den halben Kelly?",
+     "o": [
+      "Weil Kelly sehr aggressiv ist und Schätzungen nie exakt sind",
+      "Weil es gesetzlich vorgeschrieben ist",
+      "Weil er immer mehr gewinnt",
+      "Weil Kelly nur für Optionen gilt"
+     ],
+     "a": 0,
+     "e": "Eine kleinere Position senkt die Schwankungen stark und kostet nur etwas Rendite."
+    },
+    {
+     "q": "Was ist Rache-Trading?",
+     "o": [
+      "Nach einem Verlust die Position vergrößern, um ihn schnell zurückzuholen",
+      "Am Hoch verkaufen",
+      "Einem schriftlichen Plan folgen",
+      "Diversifizieren"
+     ],
+     "a": 0,
+     "e": "Es ist eine emotionale Reaktion, die Verluste meist vergrößert."
+    },
+    {
+     "q": "Warum ist es gefährlich, den Stop-Loss wegzuschieben, wenn der Kurs näher kommt?",
+     "o": [
+      "Aus einem kleinen, geplanten Verlust wird ein großer",
+      "Es senkt die Gebühren",
+      "Es garantiert einen Gewinn",
+      "Es hat keine Wirkung"
+     ],
+     "a": 0,
+     "e": "Der Stop soll den Verlust begrenzen, den du vorher akzeptiert hast."
+    },
+    {
+     "q": "Ist es bei 50 % Trefferquote ungewöhnlich, innerhalb von 100 Trades 6 Verluste in Folge zu haben?",
+     "o": [
+      "Ja, fast unmöglich",
+      "Nein, das ist ziemlich normal",
+      "Das passiert nur bei Kryptowährungen",
+      "Nur wenn das System schlecht ist"
+     ],
+     "a": 1,
+     "e": "Die längste zu erwartende Verlustserie liegt bei etwa 6 oder 7 in Folge."
+    }
+   ]
+  }
+ ],
+ "tools": {
+  "montecarlo": {
+   "h": "Monte-Carlo-Simulation fürs Trading",
+   "p": "Gib deine Kennzahlen ein und sieh 100 mögliche Verläufe deines Kontos. Entdecke, was der Durchschnitt verschweigt.",
+   "winRate": "Trefferquote",
+   "rr": "Durchschnittsgewinn ÷ Durchschnittsverlust (R)",
+   "risk": "Risiko pro Trade",
+   "trades": "Anzahl der Trades",
+   "run": "Neu simulieren",
+   "expectancy": "Erwartungswert pro Trade",
+   "median": "Medianes Ergebnis",
+   "lossProb": "Wahrscheinlichkeit, im Minus zu enden",
+   "ddMedian": "Medianer maximaler Rückgang",
+   "ruin": "Wahrscheinlichkeit, die Hälfte zu verlieren",
+   "chartLabel": "Entwicklung von 100 simulierten Konten",
+   "best": "Bester Verlauf",
+   "worst": "Schlechtester Verlauf",
+   "medianLine": "Medianer Verlauf",
+   "trade": "Trade",
+   "positive": "Dein System hat einen positiven Erwartungswert: Langfristig gewinnt es eher, auch wenn es unterwegs harte Serien geben wird.",
+   "negative": "Dein System hat einen negativen Erwartungswert: Je mehr Trades du machst, desto wahrscheinlicher verlierst du.",
+   "note": "Jede Simulation nutzt zufällige, voneinander unabhängige Trades mit deinen Kennzahlen. Ohne Gebühren und Slippage."
+  },
+  "drawdown": {
+   "h": "Die Mathematik der Verluste",
+   "p": "Finde heraus, wie viel du gewinnen musst, um einen Einbruch aufzuholen, und wie viele Jahre das dauern kann.",
+   "loss": "Rückgang deines Depots",
+   "annual": "Jährliche Rendite für die Erholung",
+   "need": "Nötiger Gewinn",
+   "years": "Jahre bis zur Erholung",
+   "yearsVal": "{n} Jahre",
+   "chartLabel": "Nötiger Gewinn je nach Rückgang",
+   "axisLoss": "Rückgang",
+   "axisGain": "Nötiger Gewinn",
+   "explain": "Ein Rückgang um {loss} erfordert einen Anstieg um {need}. Bei {r} pro Jahr würdest du etwa {n} Jahre brauchen, um wieder am Ausgangspunkt zu sein."
+  },
+  "fire": {
+   "h": "Finanzielle Unabhängigkeit",
+   "p": "Berechne, welches Vermögen du bräuchtest, um von deinen Anlagen zu leben, und wie lange du dafür brauchst.",
+   "expenses": "Jährliche Ausgaben, die gedeckt sein sollen",
+   "rate": "Entnahmerate",
+   "capital": "Aktuelles Vermögen",
+   "saving": "Monatliche Sparrate",
+   "real": "Reale jährliche Rendite (nach Inflation)",
+   "target": "Zielvermögen",
+   "years": "Jahre bis zur Unabhängigkeit",
+   "yearsVal": "{n} Jahre",
+   "never": "In 60 Jahren nicht erreicht",
+   "monthlyIncome": "Nachhaltiges Monatseinkommen",
+   "chartLabel": "Vermögensentwicklung bis zum Ziel",
+   "targetLine": "Ziel",
+   "progress": "Du hast bereits {p} des Ziels erreicht.",
+   "note": "Die 4-%-Regel stammt aus historischen US-Studien (der Trinity-Studie): 4 % im ersten Jahr zu entnehmen und dann an die Inflation anzupassen, hielt in den meisten Szenarien 30 Jahre. Eine Garantie ist das nicht; für längere Zeiträume rechnen viele mit 3–3,5 %."
+  },
+  "dcf": {
+   "h": "DCF-Bewertungsrechner",
+   "p": "Schätze den inneren Wert einer Aktie anhand ihres freien Cashflows und vergleiche ihn mit dem Kurs.",
+   "fcf": "Aktueller freier Cashflow (Mio. €)",
+   "growth": "Jährliches Wachstum in Jahr 1–5",
+   "terminal": "Ewiges Wachstum",
+   "discount": "Diskontierungssatz",
+   "debt": "Nettoverschuldung (Mio. €)",
+   "shares": "Ausstehende Aktien (Mio.)",
+   "price": "Aktueller Aktienkurs (€)",
+   "value": "Innerer Wert je Aktie",
+   "margin": "Sicherheitsmarge",
+   "tvShare": "Anteil des Endwerts",
+   "under": "Nach deinen Annahmen notiert die Aktie unter ihrem geschätzten Wert.",
+   "over": "Nach deinen Annahmen notiert die Aktie über ihrem geschätzten Wert.",
+   "sensTitle": "Sensitivität: Wert je Aktie nach Diskontierungssatz (Zeilen) und ewigem Wachstum (Spalten)",
+   "errRate": "Der Diskontierungssatz muss höher sein als das ewige Wachstum.",
+   "note": "Ein DCF ist nur so gut wie seine Annahmen. Nutze die Sensitivitätstabelle, um eine vernünftige Spanne zu sehen statt einer exakten Zahl."
+  }
+ },
+ "exam": {
+  "h": "Prüfungsmodus",
+  "p": "20 zufällige Fragen aus dem gesamten Lernweg und den Pro-Modulen, auf Zeit. Ideal, um zu prüfen, was du wirklich beherrschst.",
+  "rules": "Du hast 20 Minuten. Du kannst zwischen den Fragen wechseln und deine Antworten bis zur Auswertung ändern.",
+  "start": "Prüfung starten",
+  "time": "Verbleibende Zeit",
+  "question": "Frage {n} von {total}",
+  "finish": "Beenden und auswerten",
+  "timeUp": "Die Zeit ist abgelaufen",
+  "result": "Du hast {c} von {q} richtig ({p})",
+  "byTopic": "Ergebnis nach Thema",
+  "review": "Sieh dir deine Fehler an",
+  "again": "Neue Prüfung",
+  "correctAns": "Richtige Antwort: {a}",
+  "yourAns": "Deine Antwort: {a}",
+  "noAnswer": "Nicht beantwortet",
+  "pro": "Pro",
+  "pass": "Stark! Du beherrschst den Großteil des Lernwegs.",
+  "fail": "Wiederhole die Themen mit den schwächsten Ergebnissen und versuch es noch einmal.",
+  "prev": "Zurück",
+  "next": "Weiter",
+  "unanswered": "Du hast noch {n} unbeantwortete Fragen. Trotzdem auswerten?"
+ }
+}

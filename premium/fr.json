@@ -1,0 +1,968 @@
+{
+ "modules": [
+  {
+   "title": "La fiscalité de l'investisseur",
+   "subtitle": "Comment vos placements sont imposés, comment payer le juste montant et quelles erreurs coûtent cher, avec l'exemple détaillé de l'Espagne.",
+   "minutes": 16,
+   "essentials": [
+    "Vous n'êtes imposé que lorsque vous réalisez une plus-value (en vendant) ou percevez des revenus comme des dividendes ou des intérêts.",
+    "Des moins-values bien gérées réduisent l'impôt sur vos plus-values.",
+    "Le temps et les bonnes enveloppes (fonds, plans d'épargne retraite, comptes à fiscalité avantageuse) changent beaucoup le résultat final."
+   ],
+   "blocks": [
+    {
+     "t": "p",
+     "h": "Le principe de base : l'impôt à la réalisation",
+     "html": "Tant que vous ne vendez pas, une hausse est une <b>plus-value latente</b> et n'est pas imposée. À la vente, la différence entre le prix de vente et le prix d'achat (frais déduits) constitue une <b>plus-value ou une moins-value</b>. Les dividendes et les intérêts, eux, sont imposés l'année où vous les percevez."
+    },
+    {
+     "t": "cards",
+     "h": "Ce qui est imposé",
+     "items": [
+      {
+       "icon": "up",
+       "h": "Plus-values de cession",
+       "p": "La différence entre ce que vous obtenez à la vente et ce que le titre vous a coûté, frais d'achat et de vente compris."
+      },
+      {
+       "icon": "coins",
+       "h": "Dividendes et intérêts",
+       "p": "Ils s'ajoutent aux revenus de l'épargne l'année où vous les percevez. En Espagne, une retenue de 19 % est déjà prélevée à la source."
+      },
+      {
+       "icon": "globe",
+       "h": "Revenus étrangers",
+       "p": "Ils peuvent être imposés à la source et dans votre pays. Les conventions fiscales évitent la double imposition, mais il faut parfois la réclamer."
+      }
+     ]
+    },
+    {
+     "t": "table",
+     "h": "Espagne : taux de l'impôt sur les revenus de l'épargne (2025-2026)",
+     "head": [
+      "Tranche de revenus de l'épargne",
+      "Taux"
+     ],
+     "rows": [
+      [
+       "Jusqu'à 6 000 €",
+       "19 %"
+      ],
+      [
+       "De 6 000 à 50 000 €",
+       "21 %"
+      ],
+      [
+       "De 50 000 à 200 000 €",
+       "23 %"
+      ],
+      [
+       "De 200 000 à 300 000 €",
+       "27 %"
+      ],
+      [
+       "Plus de 300 000 €",
+       "30 %"
+      ]
+     ]
+    },
+    {
+     "t": "p",
+     "h": "Un exemple chiffré",
+     "html": "Vous vendez 18 000 € des actions achetées 10 000 € : une plus-value de 8 000 €. Vous payez 19 % sur les 6 000 premiers euros (1 140 €) et 21 % sur les 2 000 € restants (420 €). Soit <b>1 560 € au total</b>, un taux effectif de 19,5 %."
+    },
+    {
+     "t": "list",
+     "h": "Les règles qui font le plus économiser en Espagne",
+     "items": [
+      "<b>Imputation des moins-values :</b> les moins-values de cession se déduisent des plus-values de la même année. S'il en reste, vous pouvez imputer jusqu'à 25 % des dividendes et intérêts, et le solde se reporte sur les <b>4 années</b> suivantes.",
+      "<b>Transferts entre fonds :</b> passer d'un fonds d'investissement à un autre n'est pas imposé ; vous ne payez qu'au rachat. Cela ne s'applique ni aux ETF ni aux actions.",
+      "<b>La règle des deux mois :</b> si vous vendez à perte des titres cotés et rachetez des titres équivalents dans les deux mois précédents ou suivants, vous ne pouvez imputer cette moins-value qu'après avoir revendu les titres rachetés.",
+      "<b>FIFO :</b> lorsque vous vendez une partie d'une position achetée en plusieurs fois, vous êtes réputé vendre d'abord les parts les plus anciennes.",
+      "<b>Double imposition internationale :</b> la retenue étrangère sur les dividendes peut être déduite dans votre déclaration dans la limite prévue par la convention (en général 15 %)."
+     ]
+    },
+    {
+     "t": "balance",
+     "h": "Les plans d'épargne retraite",
+     "pros": [
+      "Les versements réduisent le revenu imposable général : jusqu'à 1 500 € par an, et jusqu'à 10 000 € avec les versements de l'employeur.",
+      "L'économie d'impôt est d'autant plus forte que votre taux marginal est élevé aujourd'hui."
+     ],
+     "cons": [
+      "À la sortie, tout est imposé comme un revenu du travail, pas seulement le gain.",
+      "L'argent est bloqué jusqu'à la retraite ou des cas précis, même si depuis 2025 on peut récupérer les versements de plus de 10 ans.",
+      "Beaucoup de plans ont des frais élevés : comparez-les avant de souscrire."
+     ]
+    },
+    {
+     "t": "callout",
+     "html": "<b>Obligations déclaratives :</b> si vous détenez plus de 50 000 € en titres, comptes ou biens à l'étranger (par exemple chez un courtier étranger), vous devez déposer le formulaire 720, ou le 721 pour les cryptoactifs conservés hors d'Espagne. Cela ne fait pas payer plus d'impôt, mais l'oublier peut coûter cher."
+    },
+    {
+     "t": "deep",
+     "h": "Optimisation fiscale : idées avancées",
+     "blocks": [
+      {
+       "t": "list",
+       "items": [
+        "<b>Capitalisation ou distribution :</b> un fonds de capitalisation réinvestit les dividendes sans passer par l'impôt ; il diffère donc l'imposition et profite pleinement des intérêts composés.",
+        "<b>Purger des moins-values (tax-loss harvesting) :</b> réaliser des pertes pour compenser des gains, en respectant la règle des deux mois.",
+        "<b>Différer, c'est gagner :</b> payer l'impôt plus tard équivaut à un prêt sans intérêt de l'administration fiscale qui continue de travailler pour vous.",
+        "<b>Autres pays :</b> la France a le PEA, le Royaume-Uni l'ISA et l'Allemagne un abattement annuel (Sparer-Pauschbetrag) de 1 000 € par personne."
+       ]
+      },
+      {
+       "t": "callout",
+       "html": "Les règles fiscales évoluent. Ces informations sont générales et à jour en 2026 : vérifiez-les toujours auprès de l'administration fiscale ou d'un conseiller fiscal."
+      }
+     ]
+    }
+   ],
+   "quiz": [
+    {
+     "q": "En général, quand la hausse du cours de vos actions est-elle imposée ?",
+     "o": [
+      "Chaque 31 décembre, même sans vendre",
+      "Quand vous vendez et réalisez la plus-value",
+      "Jamais, si c'est à long terme",
+      "Quand le cours monte de plus de 10 %"
+     ],
+     "a": 1,
+     "e": "Tant que vous ne vendez pas, la plus-value est latente et n'est pas imposée."
+    },
+    {
+     "q": "En Espagne, quel taux s'applique aux 6 000 premiers euros de revenus de l'épargne ?",
+     "o": [
+      "15 %",
+      "19 %",
+      "21 %",
+      "30 %"
+     ],
+     "a": 1,
+     "e": "La première tranche des revenus de l'épargne est imposée à 19 %."
+    },
+    {
+     "q": "Vous vendez avec une plus-value de 8 000 €. Combien payez-vous environ en Espagne ?",
+     "o": [
+      "1 520 €",
+      "1 560 €",
+      "1 680 €",
+      "2 400 €"
+     ],
+     "a": 1,
+     "e": "19 % de 6 000 € (1 140 €) + 21 % de 2 000 € (420 €) = 1 560 €."
+    },
+    {
+     "q": "Pendant combien d'années peut-on reporter en Espagne les moins-values non imputées ?",
+     "o": [
+      "1",
+      "2",
+      "4",
+      "Indéfiniment"
+     ],
+     "a": 2,
+     "e": "Les moins-values non imputées peuvent être utilisées sur les 4 années suivantes."
+    },
+    {
+     "q": "Quel avantage ont en Espagne les transferts entre fonds d'investissement ?",
+     "o": [
+      "Ils ne sont pas imposés tant que vous ne rachetez pas",
+      "Ils sont exonérés pour toujours",
+      "Ils réduisent l'impôt sur votre salaire",
+      "Ils s'appliquent aussi aux ETF"
+     ],
+     "a": 0,
+     "e": "Le transfert diffère l'impôt : vous ne payez qu'au rachat."
+    },
+    {
+     "q": "Vous vendez à perte et rachetez le même titre le mois suivant. Que se passe-t-il ?",
+     "o": [
+      "Vous pouvez imputer la perte quand même",
+      "Vous ne pouvez imputer cette perte qu'après avoir revendu les titres rachetés",
+      "Vous payez une amende",
+      "La perte devient un gain"
+     ],
+     "a": 1,
+     "e": "C'est la règle des deux mois : la perte est mise en suspens."
+    },
+    {
+     "q": "Pourquoi un fonds de capitalisation peut-il être plus efficace fiscalement ?",
+     "o": [
+      "Parce qu'il ne paie jamais d'impôt",
+      "Parce qu'il réinvestit les dividendes sans imposition jusqu'à la vente",
+      "Parce qu'il a des frais plus bas",
+      "Parce qu'il garantit un meilleur rendement"
+     ],
+     "a": 1,
+     "e": "En ne distribuant pas de dividendes, il diffère l'impôt et laisse tout le capital fructifier."
+    },
+    {
+     "q": "Quand faut-il déposer le formulaire 720 ?",
+     "o": [
+      "Quand on détient plus de 50 000 € de biens ou de titres à l'étranger",
+      "À chaque achat d'action",
+      "Seulement en cas de pertes",
+      "À l'ouverture d'un compte dans une banque espagnole"
+     ],
+     "a": 0,
+     "e": "C'est une déclaration informative des biens et droits détenus à l'étranger."
+    }
+   ]
+  },
+  {
+   "title": "Les produits dérivés : options, futures et CFD",
+   "subtitle": "Ce qu'ils sont, comment fonctionne l'effet de levier et pourquoi la plupart des particuliers y perdent de l'argent.",
+   "minutes": 18,
+   "essentials": [
+    "Un dérivé est un contrat dont la valeur dépend d'un autre actif : vous n'achetez pas l'action, mais un droit ou un pari sur elle.",
+    "L'effet de levier multiplie les gains comme les pertes, et peut vous ruiner bien plus vite que vous ne le pensez.",
+    "Bien utilisés, ils servent à couvrir des risques ; pour spéculer, c'est le moyen le plus rapide de perdre de l'argent."
+   ],
+   "blocks": [
+    {
+     "t": "cards",
+     "h": "Les trois dérivés les plus courants",
+     "items": [
+      {
+       "icon": "target",
+       "h": "Options",
+       "p": "Le droit, et non l'obligation, d'acheter (call) ou de vendre (put) un actif à un prix fixé (strike) jusqu'à une date. Vous payez une prime pour ce droit."
+      },
+      {
+       "icon": "clock",
+       "h": "Futures",
+       "p": "L'obligation d'acheter ou de vendre un actif à un prix convenu à une date future. Ils se négocient sur des marchés organisés et sont réglés chaque jour."
+      },
+      {
+       "icon": "layers",
+       "h": "CFD",
+       "p": "Un contrat avec votre courtier sur la différence de prix d'un actif. Ils ne se négocient pas sur un marché officiel : votre contrepartie est le courtier lui-même."
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "h": "L'effet de levier, en chiffres",
+     "html": [
+      "Avec 1 000 € et un levier de 5:1, vous contrôlez une position de 5 000 €. Si l'actif monte de 10 %, vous gagnez 500 €, soit <b>50 %</b> de votre mise.",
+      "S'il baisse de 10 %, vous perdez 500 €, la moitié de votre capital. Et avec une baisse de 20 %, vous perdez tout. Le levier ne change pas l'actif : il change la vitesse à laquelle vous êtes ruiné si vous vous trompez."
+     ]
+    },
+    {
+     "t": "table",
+     "h": "Levier maximal pour les particuliers dans l'UE (ESMA)",
+     "head": [
+      "Actif",
+      "Maximum"
+     ],
+     "rows": [
+      [
+       "Paires de devises majeures",
+       "30:1"
+      ],
+      [
+       "Devises non majeures, or et indices majeurs",
+       "20:1"
+      ],
+      [
+       "Matières premières (hors or) et indices non majeurs",
+       "10:1"
+      ],
+      [
+       "Actions individuelles",
+       "5:1"
+      ],
+      [
+       "Cryptoactifs",
+       "2:1"
+      ]
+     ]
+    },
+    {
+     "t": "callout",
+     "html": "Par la loi, les courtiers de l'UE doivent indiquer le pourcentage de leurs clients particuliers qui perdent de l'argent avec les CFD : c'est <b>la majorité, en général entre 60 % et 85 %</b>. L'ESMA impose aussi la clôture des positions lorsque la marge tombe à 50 % et interdit de perdre plus que le solde du compte."
+    },
+    {
+     "t": "p",
+     "h": "Les options : comment on gagne et comment on perd",
+     "html": [
+      "Vous achetez un <b>call</b> de strike 100 € en payant une prime de 4 €. Si l'action vaut 115 € à l'échéance, vous gagnez 15 − 4 = <b>11 € par action</b>. Si elle vaut 95 €, l'option ne vaut rien et vous perdez la prime de 4 € : l'acheteur d'une option <b>ne perd jamais plus que la prime</b>.",
+      "Celui qui vous a vendu l'option fait le pari inverse : il encaisse la prime, mais si le cours s'envole sa perte peut être énorme. C'est pourquoi la vente d'options non couvertes est réservée aux professionnels."
+     ]
+    },
+    {
+     "t": "list",
+     "h": "Des usages raisonnables des dérivés",
+     "items": [
+      "<b>Put de protection :</b> acheter un put sur une action que vous détenez déjà fonctionne comme une assurance contre la baisse.",
+      "<b>Call couvert :</b> vendre des calls sur des actions que vous possédez génère des revenus en échange d'une partie de la hausse.",
+      "<b>Couverture de change :</b> fixer dès aujourd'hui le taux de change d'un placement en dollars.",
+      "<b>Couverture de portefeuille avec des futures :</b> réduire temporairement votre exposition aux actions sans vendre vos positions."
+     ]
+    },
+    {
+     "t": "balance",
+     "h": "Des dérivés dans votre portefeuille ?",
+     "pros": [
+      "Ils permettent de couvrir des risques précis pour un coût connu : la prime.",
+      "Ils rendent possibles des stratégies impossibles avec de simples actions.",
+      "Avec peu de capital, on obtient une forte exposition."
+     ],
+     "cons": [
+      "Le levier accélère les pertes et la pression psychologique.",
+      "Le temps joue contre l'acheteur d'options.",
+      "Les CFD ont des frais de financement quotidiens, et le courtier est votre contrepartie."
+     ]
+    },
+    {
+     "t": "deep",
+     "h": "Pour aller plus loin",
+     "blocks": [
+      {
+       "t": "list",
+       "items": [
+        "<b>Valeur temps :</b> la prime d'une option est la somme de sa valeur intrinsèque et de sa valeur temps, qui s'évapore à l'approche de l'échéance.",
+        "<b>Volatilité implicite :</b> plus on s'attend à ce que l'actif bouge, plus les options sont chères, calls comme puts.",
+        "<b>Les grecques :</b> delta (sensibilité au prix), thêta (au temps qui passe), véga (à la volatilité) et gamma (variation du delta).",
+        "<b>Contango et backwardation :</b> sur les futures de matières premières, le renouvellement des contrats peut coûter ou rapporter. C'est pourquoi certains ETF de matières premières s'écartent du prix au comptant."
+       ]
+      }
+     ]
+    }
+   ],
+   "quiz": [
+    {
+     "q": "Que vous donne l'achat d'une option call ?",
+     "o": [
+      "L'obligation d'acheter",
+      "Le droit, mais pas l'obligation, d'acheter à un prix fixé",
+      "Une action gratuite",
+      "Un dividende garanti"
+     ],
+     "a": 1,
+     "e": "Un call est un droit d'achat à un prix convenu (strike) jusqu'à une date."
+    },
+    {
+     "q": "Avec 1 000 € et un levier de 5:1, l'actif baisse de 10 %. Combien perdez-vous ?",
+     "o": [
+      "50 €",
+      "100 €",
+      "500 €",
+      "1 000 €"
+     ],
+     "a": 2,
+     "e": "Vous contrôlez 5 000 € : 10 % font 500 €, la moitié de votre capital."
+    },
+    {
+     "q": "Quel est le levier maximal dans l'UE pour un particulier sur des CFD d'actions individuelles ?",
+     "o": [
+      "2:1",
+      "5:1",
+      "20:1",
+      "30:1"
+     ],
+     "a": 1,
+     "e": "L'ESMA limite à 5:1 les CFD sur actions individuelles."
+    },
+    {
+     "q": "Combien peut perdre au maximum l'acheteur d'une option ?",
+     "o": [
+      "La prime payée",
+      "Le double de la prime",
+      "Un montant illimité",
+      "Rien, c'est garanti"
+     ],
+     "a": 0,
+     "e": "Si l'option expire sans valeur, l'acheteur ne perd que la prime."
+    },
+    {
+     "q": "À quoi sert un put de protection ?",
+     "o": [
+      "À multiplier les gains",
+      "D'assurance contre la baisse d'une action que vous détenez déjà",
+      "À toucher des dividendes",
+      "À éviter l'impôt"
+     ],
+     "a": 1,
+     "e": "Le put prend de la valeur si l'action baisse et compense la perte."
+    },
+    {
+     "q": "Qui est la contrepartie d'un CFD ?",
+     "o": [
+      "Un marché officiel",
+      "Le courtier lui-même",
+      "La banque centrale",
+      "La société émettrice de l'action"
+     ],
+     "a": 1,
+     "e": "Les CFD se concluent directement avec le courtier, pas sur un marché organisé."
+    },
+    {
+     "q": "Que devient la valeur temps d'une option à l'approche de l'échéance ?",
+     "o": [
+      "Elle augmente",
+      "Elle reste stable",
+      "Elle diminue progressivement",
+      "Elle double"
+     ],
+     "a": 2,
+     "e": "Moins il reste de temps, moins la possibilité d'un mouvement favorable a de valeur."
+    },
+    {
+     "q": "D'après les avertissements obligatoires des courtiers, quelle part des particuliers perd de l'argent avec les CFD ?",
+     "o": [
+      "Environ 10 %",
+      "Environ 30 %",
+      "La majorité, en général entre 60 % et 85 %",
+      "Aucun"
+     ],
+     "a": 2,
+     "e": "Les avertissements obligatoires montrent que la plupart des comptes de particuliers perdent de l'argent."
+    }
+   ]
+  },
+  {
+   "title": "Valoriser une entreprise : DCF et multiples",
+   "subtitle": "Estimez ce que vaut vraiment une entreprise et jugez si son cours de Bourse a du sens.",
+   "minutes": 18,
+   "essentials": [
+    "Une entreprise vaut l'argent qu'elle générera à l'avenir, ramené à sa valeur d'aujourd'hui.",
+    "Les multiples (PER, VE/EBITDA) permettent de comparer vite ; le DCF oblige à réfléchir à l'activité.",
+    "Tout modèle repose sur des hypothèses : exigez toujours une marge de sécurité."
+   ],
+   "blocks": [
+    {
+     "t": "p",
+     "h": "L'idée centrale",
+     "html": "Un euro dans dix ans vaut moins qu'un euro aujourd'hui, car aujourd'hui vous pourriez le placer. L'<b>actualisation des flux de trésorerie (DCF)</b> estime le flux de trésorerie disponible que l'entreprise générera chaque année et le ramène à sa valeur actuelle avec un <b>taux d'actualisation</b> qui reflète le risque."
+    },
+    {
+     "t": "steps",
+     "h": "Un DCF en cinq étapes",
+     "items": [
+      "<b>Flux de trésorerie disponible (FCF) :</b> l'argent que génère l'activité après les investissements nécessaires pour se maintenir et croître.",
+      "<b>Projection :</b> estimez la croissance de ce flux sur les 5 à 10 prochaines années.",
+      "<b>Valeur terminale :</b> la valeur de toutes les années suivantes, en supposant une croissance perpétuelle modeste (2–3 %).",
+      "<b>Actualisation :</b> ramenez chaque flux à aujourd'hui avec le taux d'actualisation (par exemple 8–10 % pour une entreprise mature).",
+      "<b>De la valeur d'entreprise à celle de l'action :</b> retranchez la dette nette et divisez par le nombre d'actions."
+     ]
+    },
+    {
+     "t": "table",
+     "h": "Un exemple complet",
+     "head": [
+      "Élément",
+      "Valeur"
+     ],
+     "rows": [
+      [
+       "Flux de trésorerie disponible actuel",
+       "100 M€"
+      ],
+      [
+       "Croissance les années 1–5",
+       "8 % par an"
+      ],
+      [
+       "Taux d'actualisation",
+       "9 %"
+      ],
+      [
+       "Croissance perpétuelle",
+       "2,5 %"
+      ],
+      [
+       "Valeur actuelle des flux des années 1–5",
+       "≈ 486 M€"
+      ],
+      [
+       "Valeur actuelle de la valeur terminale",
+       "≈ 1 506 M€"
+      ],
+      [
+       "Valeur d'entreprise",
+       "≈ 1 992 M€"
+      ],
+      [
+       "Moins la dette nette",
+       "300 M€"
+      ],
+      [
+       "Valeur par action (50 M d'actions)",
+       "≈ 33,85 €"
+      ]
+     ]
+    },
+    {
+     "t": "callout",
+     "html": "Remarquez que <b>les trois quarts de la valeur</b> proviennent de la valeur terminale : de petits changements du taux d'actualisation ou de la croissance perpétuelle modifient beaucoup le résultat. C'est pourquoi un DCF donne une fourchette, pas un chiffre exact. Essayez la calculatrice DCF des outils Premium."
+    },
+    {
+     "t": "cards",
+     "h": "Les multiples les plus utiles",
+     "items": [
+      {
+       "icon": "calc",
+       "h": "PER",
+       "p": "Cours ÷ bénéfice par action. Simple, même si le bénéfice comptable peut être embelli."
+      },
+      {
+       "icon": "factory",
+       "h": "VE/EBITDA",
+       "p": "Valeur d'entreprise (dette comprise) ÷ résultat d'exploitation avant amortissements. Permet de comparer des entreprises plus ou moins endettées."
+      },
+      {
+       "icon": "wallet",
+       "h": "P/FCF",
+       "p": "Cours ÷ flux de trésorerie disponible. Mesure ce que vous payez pour l'argent réellement généré."
+      },
+      {
+       "icon": "book",
+       "h": "P/VC",
+       "p": "Cours ÷ valeur comptable. Utile pour les banques et les assureurs, peu pour les éditeurs de logiciels."
+      }
+     ]
+    },
+    {
+     "t": "p",
+     "h": "La marge de sécurité",
+     "html": "Si vous estimez qu'une action vaut 34 € et qu'elle cote 25 €, vous avez une <b>marge de sécurité de 26 %</b>. Benjamin Graham, père du value investing, conseillait de n'acheter qu'avec une marge confortable, car vos estimations peuvent être fausses."
+    },
+    {
+     "t": "list",
+     "h": "Les pièges classiques",
+     "items": [
+      "<b>Pièges de valeur :</b> une entreprise peut être bon marché parce que son activité décline.",
+      "<b>Croissances optimistes :</b> rares sont les entreprises qui croissent de plus de 10 % par an pendant dix ans.",
+      "<b>Rémunération en actions :</b> si l'entreprise paie ses salariés en actions, elle dilue les actionnaires même sans sortie de trésorerie.",
+      "<b>Entreprises cycliques :</b> leur PER paraît le plus bas au sommet du cycle, quand les bénéfices sont exceptionnels."
+     ]
+    },
+    {
+     "t": "deep",
+     "h": "Affiner le taux d'actualisation",
+     "blocks": [
+      {
+       "t": "list",
+       "items": [
+        "<b>CMPC (WACC) :</b> la moyenne pondérée du coût de la dette (après impôt) et du coût des fonds propres.",
+        "<b>Coût des fonds propres :</b> on l'estime souvent par le taux sans risque + bêta × la prime de risque du marché (modèle MEDAF).",
+        "<b>Sensibilité :</b> calculez toujours la valeur avec plusieurs taux et croissances. Si la conclusion change pour un point d'écart, l'investissement n'est pas si évident."
+       ]
+      }
+     ]
+    }
+   ],
+   "quiz": [
+    {
+     "q": "Qu'estime un DCF ?",
+     "o": [
+      "Le cours de l'action demain",
+      "La valeur actuelle de l'argent que générera l'entreprise",
+      "Le dividende de l'an prochain",
+      "La dette de l'entreprise"
+     ],
+     "a": 1,
+     "e": "Le DCF additionne les flux futurs ramenés à leur valeur d'aujourd'hui."
+    },
+    {
+     "q": "Pourquoi actualise-t-on les flux futurs ?",
+     "o": [
+      "Parce qu'un euro futur vaut moins qu'un euro aujourd'hui",
+      "Parce que la loi l'impose",
+      "Pour payer moins d'impôt",
+      "Parce que les flux baissent toujours"
+     ],
+     "a": 0,
+     "e": "L'argent d'aujourd'hui peut être placé, et l'avenir est en plus incertain."
+    },
+    {
+     "q": "Dans l'exemple, quelle part de la valeur provient de la valeur terminale ?",
+     "o": [
+      "Environ un quart",
+      "Environ la moitié",
+      "Environ les trois quarts",
+      "Aucune"
+     ],
+     "a": 2,
+     "e": "Environ 1 506 millions sur 1 992 : près de 75 %."
+    },
+    {
+     "q": "Quel avantage a le VE/EBITDA par rapport au PER ?",
+     "o": [
+      "Il tient compte de la dette et permet de comparer des entreprises plus ou moins endettées",
+      "Il est plus facile à calculer",
+      "Il est toujours plus bas",
+      "Il inclut les dividendes"
+     ],
+     "a": 0,
+     "e": "La valeur d'entreprise inclut la dette nette, que le PER ignore."
+    },
+    {
+     "q": "Selon votre analyse, une action vaut 40 € et cote 30 €. Quelle est votre marge de sécurité ?",
+     "o": [
+      "10 %",
+      "25 %",
+      "33 %",
+      "75 %"
+     ],
+     "a": 1,
+     "e": "1 − 30 ÷ 40 = 25 %."
+    },
+    {
+     "q": "Qu'est-ce qu'un piège de valeur ?",
+     "o": [
+      "Une entreprise bon marché parce que son activité se dégrade",
+      "Une action qui monte toujours",
+      "Un type d'ordre",
+      "Un fonds indiciel"
+     ],
+     "a": 0,
+     "e": "Elle a l'air d'une affaire, mais son faible cours reflète une vraie dégradation."
+    },
+    {
+     "q": "Quelle croissance perpétuelle est raisonnable pour calculer une valeur terminale ?",
+     "o": [
+      "15 %",
+      "10 %",
+      "2–3 %",
+      "−5 %"
+     ],
+     "a": 2,
+     "e": "Sur le très long terme, aucune entreprise ne croît beaucoup plus vite que l'économie."
+    },
+    {
+     "q": "Pourquoi le PER d'une entreprise cyclique peut-il tromper au sommet du cycle ?",
+     "o": [
+      "Parce que les bénéfices sont exceptionnellement élevés et font paraître l'action bon marché",
+      "Parce qu'elle n'a pas de bénéfices",
+      "Parce que l'entreprise n'est pas cotée",
+      "Parce que ces entreprises n'ont pas de PER"
+     ],
+     "a": 0,
+     "e": "Avec des bénéfices au plus haut, le PER paraît bas juste avant qu'ils ne chutent."
+    }
+   ]
+  },
+  {
+   "title": "Gestion du risque avancée et psychologie du trading",
+   "subtitle": "Les mathématiques qui séparent ceux qui survivent sur les marchés de ceux qui se ruinent.",
+   "minutes": 17,
+   "essentials": [
+    "L'important n'est pas d'avoir souvent raison, mais de gagner davantage quand vous avez raison que vous ne perdez quand vous avez tort.",
+    "Les grosses pertes sont disproportionnellement difficiles à rattraper.",
+    "Un journal et des règles écrites protègent votre argent de vos émotions."
+   ],
+   "blocks": [
+    {
+     "t": "p",
+     "h": "L'espérance mathématique",
+     "html": [
+      "L'<b>espérance</b> d'un système est ce que vous gagnez ou perdez en moyenne par opération : (taux de réussite × gain moyen) − (taux d'échec × perte moyenne).",
+      "Avec 40 % d'opérations gagnantes qui rapportent 3 € et 60 % de perdantes qui coûtent 1 €, l'espérance vaut 0,4 × 3 − 0,6 × 1 = <b>+0,60 € par euro risqué</b>. On peut se tromper plus souvent qu'on a raison et gagner de l'argent."
+     ]
+    },
+    {
+     "t": "table",
+     "h": "L'asymétrie des pertes",
+     "head": [
+      "Si vous perdez…",
+      "…il vous faut gagner"
+     ],
+     "rows": [
+      [
+       "10 %",
+       "11,1 %"
+      ],
+      [
+       "20 %",
+       "25 %"
+      ],
+      [
+       "30 %",
+       "42,9 %"
+      ],
+      [
+       "50 %",
+       "100 %"
+      ],
+      [
+       "75 %",
+       "300 %"
+      ],
+      [
+       "90 %",
+       "900 %"
+      ]
+     ]
+    },
+    {
+     "t": "callout",
+     "html": "C'est pourquoi les professionnels s'obsèdent davantage à ne pas perdre beaucoup qu'à gagner beaucoup. <b>Protéger son capital est la première règle</b> ; le faire croître, la seconde."
+    },
+    {
+     "t": "list",
+     "h": "Comment dimensionner ses positions",
+     "items": [
+      "<b>Fraction fixe :</b> risquer toujours le même pourcentage du capital (par exemple 1 %) à chaque opération. Après une mauvaise série, les positions se réduisent d'elles-mêmes.",
+      "<b>Critère de Kelly :</b> fraction optimale = p − (1 − p) ÷ R, où p est le taux de réussite et R le ratio gain/risque. Avec p = 0,4 et R = 3, Kelly suggère 20 %.",
+      "<b>Demi-Kelly :</b> Kelly est très agressif et vos estimations ne sont jamais exactes ; beaucoup de professionnels n'en utilisent que la moitié, voire moins.",
+      "<b>Risque corrélé :</b> cinq positions dans le même secteur ne sont pas cinq risques distincts, mais un seul gros risque."
+     ]
+    },
+    {
+     "t": "cards",
+     "h": "Les ennemis intérieurs",
+     "items": [
+      {
+       "icon": "heart",
+       "h": "Le trading de revanche",
+       "p": "Augmenter la taille après une perte pour la rattraper vite. C'est le moyen le plus rapide de transformer une mauvaise journée en désastre."
+      },
+      {
+       "icon": "clock",
+       "h": "Le surtrading",
+       "p": "Ouvrir des opérations par ennui ou par besoin d'action. Chacune paie des frais et l'écart de cotation."
+      },
+      {
+       "icon": "alert",
+       "h": "Déplacer le stop",
+       "p": "Éloigner son stop-loss quand le cours s'en approche. Une petite perte prévue devient une grosse perte."
+      },
+      {
+       "icon": "target",
+       "h": "Confondre résultat et processus",
+       "p": "Une bonne décision peut mal tourner et une mauvaise bien finir. Jugez si vous avez suivi le plan, pas seulement si vous avez gagné."
+      }
+     ]
+    },
+    {
+     "t": "steps",
+     "h": "Votre journal d'investissement",
+     "items": [
+      "<b>Avant d'entrer :</b> notez pourquoi vous entrez, où est votre stop, votre objectif et combien vous risquez.",
+      "<b>Pendant :</b> consignez tout changement du plan et sa raison.",
+      "<b>À la sortie :</b> notez le résultat, ce que vous avez ressenti et si vous avez respecté vos règles.",
+      "<b>Chaque mois :</b> calculez votre taux de réussite, vos gains et pertes moyens et votre espérance réelle."
+     ]
+    },
+    {
+     "t": "balance",
+     "h": "Des règles automatiques",
+     "pros": [
+      "Elles suppriment les décisions à chaud.",
+      "Elles rendent votre système mesurable.",
+      "Elles vous protègent pendant les mauvaises séries."
+     ],
+     "cons": [
+      "Aucune règle ne fonctionne sur tous les marchés.",
+      "Elles exigent de la discipline même quand elles font mal.",
+      "Trop de règles peuvent vous paralyser."
+     ]
+    },
+    {
+     "t": "deep",
+     "h": "Ruine et variance",
+     "blocks": [
+      {
+       "t": "list",
+       "items": [
+        "<b>Séries :</b> avec 50 % de réussite, enchaîner 6 ou 7 pertes d'affilée sur 100 opérations est normal. Votre taille de position doit le supporter.",
+        "<b>Risque de ruine :</b> la probabilité de perdre une part du capital dont vous ne pourrez pas vous relever. Il grimpe très vite quand on augmente le risque par opération.",
+        "<b>Simulations de Monte-Carlo :</b> répéter des milliers de fois une séquence aléatoire d'opérations avec vos statistiques montre l'éventail des résultats possibles, pas seulement la moyenne. Essayez-le dans les outils Premium."
+       ]
+      }
+     ]
+    }
+   ],
+   "quiz": [
+    {
+     "q": "Vous avez raison 40 % du temps avec un gain moyen de 3 € et tort 60 % du temps avec une perte moyenne de 1 €. Quelle est votre espérance par opération ?",
+     "o": [
+      "−0,60 €",
+      "0 €",
+      "+0,60 €",
+      "+1,20 €"
+     ],
+     "a": 2,
+     "e": "0,4 × 3 − 0,6 × 1 = +0,60 €."
+    },
+    {
+     "q": "Si vous perdez 50 % de votre capital, combien devez-vous gagner pour le retrouver ?",
+     "o": [
+      "50 %",
+      "75 %",
+      "100 %",
+      "150 %"
+     ],
+     "a": 2,
+     "e": "Avec la moitié de l'argent, il faut le doubler pour revenir au point de départ."
+    },
+    {
+     "q": "En quoi consiste la fraction fixe ?",
+     "o": [
+      "Risquer toujours le même pourcentage du capital par opération",
+      "Acheter toujours le même nombre d'actions",
+      "Doubler la mise après une perte",
+      "Supprimer le risque"
+     ],
+     "a": 0,
+     "e": "Le risque s'ajuste automatiquement à la taille du compte."
+    },
+    {
+     "q": "Selon Kelly, avec p = 0,5 et R = 2, quelle fraction du capital faut-il risquer ?",
+     "o": [
+      "10 %",
+      "25 %",
+      "50 %",
+      "75 %"
+     ],
+     "a": 1,
+     "e": "0,5 − 0,5 ÷ 2 = 0,25."
+    },
+    {
+     "q": "Pourquoi beaucoup de professionnels utilisent-ils le demi-Kelly ?",
+     "o": [
+      "Parce que Kelly est très agressif et que les estimations ne sont jamais exactes",
+      "Parce que la loi l'impose",
+      "Parce qu'il gagne toujours plus",
+      "Parce que Kelly ne sert qu'aux options"
+     ],
+     "a": 0,
+     "e": "Réduire la taille diminue fortement la volatilité pour un léger sacrifice de rendement."
+    },
+    {
+     "q": "Qu'est-ce que le trading de revanche ?",
+     "o": [
+      "Augmenter la taille après une perte pour la rattraper vite",
+      "Vendre au plus haut",
+      "Suivre un plan écrit",
+      "Diversifier"
+     ],
+     "a": 0,
+     "e": "C'est une réaction émotionnelle qui aggrave généralement les pertes."
+    },
+    {
+     "q": "Pourquoi est-il dangereux d'éloigner son stop-loss quand le cours s'en approche ?",
+     "o": [
+      "Une petite perte prévue devient une grosse perte",
+      "Cela réduit les frais",
+      "Cela garantit un gain",
+      "Cela n'a aucun effet"
+     ],
+     "a": 0,
+     "e": "Le stop sert à limiter la perte que vous aviez acceptée à l'avance."
+    },
+    {
+     "q": "Avec 50 % de réussite, est-il rare d'enchaîner 6 pertes d'affilée sur 100 opérations ?",
+     "o": [
+      "Oui, c'est presque impossible",
+      "Non, c'est assez normal",
+      "Cela n'arrive qu'avec les cryptomonnaies",
+      "Seulement si le système est mauvais"
+     ],
+     "a": 1,
+     "e": "La plus longue série perdante attendue tourne autour de 6 ou 7."
+    }
+   ]
+  }
+ ],
+ "tools": {
+  "montecarlo": {
+   "h": "Simulation de Monte-Carlo du trading",
+   "p": "Saisissez vos statistiques et observez 100 trajectoires possibles pour votre compte. Découvrez ce que la moyenne ne dit pas.",
+   "winRate": "Taux de réussite",
+   "rr": "Gain moyen ÷ perte moyenne (R)",
+   "risk": "Risque par opération",
+   "trades": "Nombre d'opérations",
+   "run": "Relancer la simulation",
+   "expectancy": "Espérance par opération",
+   "median": "Résultat médian",
+   "lossProb": "Probabilité de finir en perte",
+   "ddMedian": "Baisse maximale médiane",
+   "ruin": "Probabilité de perdre la moitié",
+   "chartLabel": "Évolution de 100 comptes simulés",
+   "best": "Meilleure trajectoire",
+   "worst": "Pire trajectoire",
+   "medianLine": "Trajectoire médiane",
+   "trade": "Opération",
+   "positive": "Votre système a une espérance positive : à long terme il tend à gagner, même s'il y aura des séries difficiles en chemin.",
+   "negative": "Votre système a une espérance négative : plus vous faites d'opérations, plus vous risquez de perdre.",
+   "note": "Chaque simulation utilise des opérations aléatoires et indépendantes avec vos statistiques. Frais et glissements non compris."
+  },
+  "drawdown": {
+   "h": "Les mathématiques des pertes",
+   "p": "Découvrez combien il faut gagner pour effacer une baisse et combien d'années cela peut prendre.",
+   "loss": "Baisse de votre portefeuille",
+   "annual": "Rendement annuel pour vous refaire",
+   "need": "Gain nécessaire",
+   "years": "Années pour revenir au niveau",
+   "yearsVal": "{n} ans",
+   "chartLabel": "Gain nécessaire selon la baisse",
+   "axisLoss": "Baisse",
+   "axisGain": "Gain nécessaire",
+   "explain": "Une baisse de {loss} exige une hausse de {need}. À {r} par an, il vous faudrait environ {n} ans pour revenir au point de départ."
+  },
+  "fire": {
+   "h": "Indépendance financière",
+   "p": "Calculez le patrimoine nécessaire pour vivre de vos placements et le temps qu'il faudrait pour le constituer.",
+   "expenses": "Dépenses annuelles à couvrir",
+   "rate": "Taux de retrait",
+   "capital": "Patrimoine actuel",
+   "saving": "Épargne mensuelle",
+   "real": "Rendement annuel réel (hors inflation)",
+   "target": "Patrimoine cible",
+   "years": "Années avant l'indépendance",
+   "yearsVal": "{n} ans",
+   "never": "Non atteint en 60 ans",
+   "monthlyIncome": "Revenu mensuel soutenable",
+   "chartLabel": "Évolution du patrimoine vers l'objectif",
+   "targetLine": "Objectif",
+   "progress": "Vous avez déjà {p} de l'objectif.",
+   "note": "La règle des 4 % provient d'études historiques américaines (la Trinity Study) : retirer 4 % la première année puis indexer sur l'inflation a tenu 30 ans dans la plupart des scénarios. Ce n'est pas une garantie ; pour des horizons plus longs, beaucoup retiennent 3–3,5 %."
+  },
+  "dcf": {
+   "h": "Calculatrice de valorisation DCF",
+   "p": "Estimez la valeur intrinsèque d'une action à partir de son flux de trésorerie disponible et comparez-la à son cours.",
+   "fcf": "Flux de trésorerie disponible actuel (M€)",
+   "growth": "Croissance annuelle les années 1–5",
+   "terminal": "Croissance perpétuelle",
+   "discount": "Taux d'actualisation",
+   "debt": "Dette nette (M€)",
+   "shares": "Actions en circulation (millions)",
+   "price": "Cours actuel de l'action (€)",
+   "value": "Valeur intrinsèque par action",
+   "margin": "Marge de sécurité",
+   "tvShare": "Poids de la valeur terminale",
+   "under": "Selon vos hypothèses, l'action cote sous sa valeur estimée.",
+   "over": "Selon vos hypothèses, l'action cote au-dessus de sa valeur estimée.",
+   "sensTitle": "Sensibilité : valeur par action selon le taux d'actualisation (lignes) et la croissance perpétuelle (colonnes)",
+   "errRate": "Le taux d'actualisation doit être supérieur à la croissance perpétuelle.",
+   "note": "Un DCF ne vaut que par ses hypothèses. Servez-vous du tableau de sensibilité pour voir une fourchette raisonnable, pas un chiffre exact."
+  }
+ },
+ "exam": {
+  "h": "Mode examen",
+  "p": "20 questions tirées au hasard de tout le parcours et des modules Pro, chronométrées. Idéal pour vérifier ce que vous maîtrisez vraiment.",
+  "rules": "Vous avez 20 minutes. Vous pouvez naviguer entre les questions et modifier vos réponses jusqu'à la correction.",
+  "start": "Commencer l'examen",
+  "time": "Temps restant",
+  "question": "Question {n} sur {total}",
+  "finish": "Terminer et corriger",
+  "timeUp": "Le temps est écoulé",
+  "result": "Vous avez {c} bonnes réponses sur {q} ({p})",
+  "byTopic": "Résultats par thème",
+  "review": "Revoyez vos erreurs",
+  "again": "Nouvel examen",
+  "correctAns": "Bonne réponse : {a}",
+  "yourAns": "Votre réponse : {a}",
+  "noAnswer": "Sans réponse",
+  "pro": "Pro",
+  "pass": "Bravo ! Vous maîtrisez l'essentiel du parcours.",
+  "fail": "Revoyez les thèmes où vous avez le moins bien réussi et réessayez.",
+  "prev": "Précédente",
+  "next": "Suivante",
+  "unanswered": "Il vous reste {n} questions sans réponse. Corriger quand même ?"
+ }
+}

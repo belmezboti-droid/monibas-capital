@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: cuaderno-del-inversor
+    name: monibas-capital-1
     runtime: node
     plan: starter
     buildCommand: if [ -f package-lock.json ]; then npm ci --omit=dev; else npm install --omit=dev; fi
@@ -19,6 +19,16 @@ services:
         sync: false
       - key: AI_DAILY_LIMIT
         value: "500"
+      - key: PUBLIC_URL
+        sync: false
+      - key: STRIPE_SECRET_KEY
+        sync: false
+      - key: STRIPE_PRICE_ID
+        sync: false
+      - key: STRIPE_WEBHOOK_SECRET
+        sync: false
+      - key: STRIPE_AUTOMATIC_TAX
+        value: "false"
     disk:
       name: datos
       mountPath: /var/data
